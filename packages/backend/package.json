@@ -1,0 +1,7 @@
+{
+  "name": "@mapa/backend",
+  "version": "0.0.0",
+  "files": [
+    "dist/"
+  ]
+}

@@ -1,0 +1,64 @@
+/// a mixin providing a shorthand for positioning elements
+/// respecting 1 to 4 values like e.g. padding does
+///
+/// from https://developer.mozilla.org/en-US/docs/Web/CSS/padding#Syntax:
+/// * When one value is specified, it applies the same padding to all four sides.
+/// * When two values are specified, the first padding applies to the top and bottom, the second to the left and right.
+/// * When three values are specified, the first padding applies to the top, the second to the left and right, the third to the bottom.
+/// * When four values are specified, the paddings apply to the top, right, bottom, and left in that order (clockwise).
+///
+/// e.g. `@include position(absolute, 0);`
+/// results in
+/// ```
+/// position: absolute;
+/// bottom: 0;
+/// left: 0;
+/// right: 0;
+/// top: 0;
+/// ```
+///
+/// or `@include position(fixed, 0 auto);`
+/// results in
+/// ```
+/// position: fixed;
+/// bottom: 0;
+/// left: auto;
+/// right: auto;
+/// top: 0;
+/// ```
+@mixin position($position: static, $bounds: 0 0 0 0) {
+  position: $position;
+
+  // top, right, bottom, left
+  @if length($bounds) == 4 {
+    bottom: nth($bounds, 3);
+    left: nth($bounds, 4);
+    right: nth($bounds, 2);
+    top: nth($bounds, 1);
+  }
+
+    // top, right/left, bottom
+  @else if length($bounds) == 3 {
+    bottom: nth($bounds, 3);
+    left: nth($bounds, 2);
+    right: nth($bounds, 2);
+    top: nth($bounds, 1);
+  }
+
+    // top/bottom, right/left
+  @else if length($bounds) == 2 {
+    bottom: nth($bounds, 1);
+    left: nth($bounds, 2);
+    right: nth($bounds, 2);
+    top: nth($bounds, 1);
+  }
+
+    // top/bottom/right/left
+  @else if length($bounds) == 1 {
+    bottom: nth($bounds, 1);
+    left: nth($bounds, 1);
+    right: nth($bounds, 1);
+    top: nth($bounds, 1);
+  }
+
+}

@@ -1,0 +1,44 @@
+@mixin title {
+
+}
+
+@mixin headline($weight: h2) {
+
+  @if $weight == h2 {
+    h2 {
+      font-size: 3.2rem;
+      font-weight: var(--font-weight-black);
+    }
+  }
+
+  @if $weight == h3 {
+    h3 {
+      font-size: 2.4rem;
+      font-weight: var(--font-weight-bold);
+    }
+  }
+
+  @if $weight == h4 {
+    // can be bold _or_ black
+    h4 {
+      font-size: 1.8rem;
+      font-weight: var(--font-weight-black);
+      font-weight: var(--font-weight-bold);
+    }
+  }
+
+  @if $weight == h5 {
+    h5 {
+      font-size: 1.5rem;
+      font-weight: var(--font-weight-bold);
+    }
+  }
+
+  @if $weight == h6 {
+    h6 {
+      font-size: 1.1rem;
+      font-weight: var(--font-weight-bold);
+    }
+  }
+
+}

@@ -1,0 +1,31 @@
+{
+  "name": "@mapa/frontend",
+  "version": "0.0.0",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build:schema": "typescript-json-schema --required --out src/config.schema.json src/config.d.ts Config",
+    "build:stencil": "stencil build",
+    "build": "run-s build:*",
+    "start:schema": "nodemon --watch src/config.d.ts --exec npm run build:schema",
+    "start:stencil": "stencil build --prod --watch --serve",
+    "start": "run-p start:*"
+  },
+  "dependencies": {
+    "css-reset-and-normalize": "2.1.0",
+    "typeface-ubuntu": "0.0.65"
+  },
+  "devDependencies": {
+    "@ionic/core": "5.0.5",
+    "@stencil/core": "1.11.0",
+    "@stencil/postcss": "1.0.1",
+    "@stencil/router": "1.0.1",
+    "@stencil/sass": "1.1.1",
+    "@types/node": "12.12.30",
+    "autoprefixer": "9.7.4",
+    "nodemon": "2.0.2",
+    "npm-run-all": "4.1.5",
+    "typescript-json-schema": "0.42.0"
+  }
+}

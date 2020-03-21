@@ -1,0 +1,11 @@
+{
+  "$schema": "config.schema.json",
+  "urls": {
+    "api": "//localhost:3400/api",
+    "assets": "//localhost:3400"
+  },
+  "console": {},
+  "defaults": {
+    "locale": "de"
+  }
+}

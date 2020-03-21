@@ -1,0 +1,6 @@
+@import '../functions/to-string.function';
+
+@mixin transition($properties: all, $duration: .2s) {
+  transition: $duration cubic-bezier(.4, 0, .2, 1);
+  transition-property: to-string($properties, ', ');
+}

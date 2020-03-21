@@ -1,0 +1,37 @@
+@import '../variables/breakpoints.variables';
+
+@mixin defaults() {
+  html,
+  body {
+    // [1] Ensure the page always fills at least the entire height of the viewport.
+    // [2] Prevent iOS text size adjust after orientation change, without disabling user zoom.
+    // [3] Fonts on OSX will look more consistent with other systems that do not render text using sub-pixel anti-aliasing.
+    // sass-lint:disable property-sort-order no-vendor-prefixes
+    -webkit-tap-highlight-color: var(--color-transparent);
+    -webkit-touch-callout: none;
+    height: 100%; // [1]
+
+    -webkit-text-size-adjust: 100%; // [2]
+    -ms-text-size-adjust: 100%; // [2]
+
+    -webkit-font-smoothing: antialiased; // [3]
+    -moz-osx-font-smoothing: grayscale; // [3]
+  }
+
+  html {
+    background-color: var(--color-white);
+    font-size: var(--font-size-base);
+  }
+
+  body {
+    font-family: var(--font-face-default);
+    font-size: calc(var(--font-size-base) * 2.2);
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: $breakpoint-tablet) {
+      hyphens: auto;
+      overflow-wrap: break-word;
+    }
+  }
+}

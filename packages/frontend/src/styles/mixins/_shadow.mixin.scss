@@ -1,0 +1,5 @@
+@import '../variables/colors.variables';
+
+@mixin shadow($size: 15px, $offset: 5px) {
+  box-shadow: 0 $offset $size 0 $color-shadow-25;
+}

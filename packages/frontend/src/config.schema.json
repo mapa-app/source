@@ -1,0 +1,61 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "Partial<{log:boolean;info:boolean;warn:boolean;error:boolean;}>": {
+            "description": "Make all properties in T optional",
+            "properties": {
+                "error": {
+                    "type": "boolean"
+                },
+                "info": {
+                    "type": "boolean"
+                },
+                "log": {
+                    "type": "boolean"
+                },
+                "warn": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "properties": {
+        "console": {
+            "$ref": "#/definitions/Partial<{log:boolean;info:boolean;warn:boolean;error:boolean;}>"
+        },
+        "defaults": {
+            "properties": {
+                "locale": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "locale"
+            ],
+            "type": "object"
+        },
+        "urls": {
+            "properties": {
+                "api": {
+                    "type": "string"
+                },
+                "assets": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "api",
+                "assets"
+            ],
+            "type": "object"
+        }
+    },
+    "required": [
+        "console",
+        "defaults",
+        "urls"
+    ],
+    "type": "object"
+}
+

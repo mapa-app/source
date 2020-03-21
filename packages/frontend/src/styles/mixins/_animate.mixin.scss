@@ -1,0 +1,9 @@
+@mixin animate($properties...) {
+  // set a default value if the list is not set
+  @if (length($properties) == 0) {
+    $properties: all;
+  }
+
+  transition: .2s ease-out;
+  transition-property: $properties;
+}
