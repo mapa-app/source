@@ -2,7 +2,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { AuthenticationError } from 'apollo-server';
 
-export default {
+export const userResolver = {
   Query: {
     user: async (parent, { id }, { models: { userModel }, me }, info) => {
       if (!me) {

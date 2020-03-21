@@ -1,10 +1,9 @@
 import { gql } from 'apollo-server';
 
-export default gql`
+export const userSchema = gql`
   type User {
     id: ID!
     name: String!
-    posts: [Post!]!
   }
 
   type Token {

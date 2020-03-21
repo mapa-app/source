@@ -4,15 +4,16 @@ import jwt from 'jsonwebtoken';
 import mongoose from 'mongoose';
 import { ApolloServer, AuthenticationError } from 'apollo-server-express';
 
-import schemas from './schemas';
-import resolvers from './resolvers';
+import { linkSchema } from './schemas';
 
-import userModel from './models/userModel';
+import { userSchema } from './schemas/user.schema';
+import { userResolver } from './resolvers/user.resolver';
+import { userModel } from './models/user.model';
 
 const app = express();
 app.use(cors());
 
-const getUser = async (req) => {
+const getUser = async req => {
   const token = req.headers['token'];
   if (token) {
     try {
@@ -24,8 +25,13 @@ const getUser = async (req) => {
 };
 
 const server = new ApolloServer({
-  typeDefs: schemas,
-  resolvers,
+  typeDefs: [
+    linkSchema,
+    userSchema
+  ],
+  resolvers: [
+    userResolver
+  ],
   context: async ({ req }) => {
     if (req) {
       const me = await getUser(req);
@@ -33,16 +39,20 @@ const server = new ApolloServer({
       return {
         me,
         models: {
-          userModel,
-        },
+          userModel
+        }
       };
     }
-  },
+  }
 });
 
 
 server.applyMiddleware({ app, path: '/graphql' });
 
-app.listen(4000, () => {
- mongoose.connect('mongodb://localhost:27017/graphql');
+app.listen(4000, async () => {
+  await mongoose.connect('mongodb://ds233596.mlab.com:33596/mapa', {
+    // TODO: use credentials from env vars!
+    user: 'mapa',
+    pass: 'i9-Af4xeq57C#34'
+  });
 });
