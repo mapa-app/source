@@ -43,7 +43,7 @@ export const schema = gql`
   extend type Query {
     user(id: ID!): User!
     login(name: String!, password: String!): String!
-    diary(user:UserInput!):[DiaryEntry]!
+    diary(user:UserInput!):Diary!
   }
 
   extend type Mutation {

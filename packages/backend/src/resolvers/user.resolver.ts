@@ -2,7 +2,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { AuthenticationError } from 'apollo-server';
 import { userModel } from '../models/user.model';
-import { diaryModel, Diary } from '../models/diary.model';
+import { diaryModel } from '../models/diary.model';
 import { roleModel } from '../models/role.model';
 import { diaryEntryModel } from '../models/diaryentry.model';
 import { duplicateArgMessage } from 'graphql/validation/rules/UniqueArgumentNames';
@@ -14,11 +14,9 @@ export const userResolver = {
       return user;
     },
     diary: async (parent, { user }, context, info) => {
-      console.log(user)
       const cuser = await userModel.findById({ _id: user.id }).exec();
       const diary = await diaryModel.findOne({ user:cuser });
-      console.log(diary)
-      return diary.diaryEntries
+      return diary
     }
   },
   Mutation: {
@@ -28,7 +26,7 @@ export const userResolver = {
     },
     addDiaryEntry: async (parent, { id, entry }, context, info) => {
       const user = await userModel.findById({ _id: id }).exec();
-      const diary = await diaryModel.create({user:user,diaryEntries:[{text:entry.text, date:entry.date}]});
+      await diaryModel.create({user:user,diaryEntries:[{text:entry.text, date:entry.date}]});
       return true;
     }
   }
