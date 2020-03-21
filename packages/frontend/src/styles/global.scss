@@ -41,3 +41,7 @@
   --ion-background-color: linear-gradient(180deg, var(--color-orange) 0%, var(--color-white) 100%);
   --ion-font-family: var(--font-face-default);
 }
+
+ion-button {
+  --border-radius: 2.8em;
+}
