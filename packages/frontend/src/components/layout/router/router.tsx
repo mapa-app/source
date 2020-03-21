@@ -6,7 +6,7 @@ import { Component, h } from '@stencil/core';
 export class Router {
 
   render() {
-    return [
+    return (
       <ion-router useHash={ false }>
         <ion-route-redirect from="/"
                             to="/welcome"
@@ -47,8 +47,7 @@ export class Router {
         <ion-route url="/mediation"
                    component="mapa-mediation"
         />
-      </ion-router>,
-      <ion-nav/>
-    ];
+      </ion-router>
+    );
   }
 }

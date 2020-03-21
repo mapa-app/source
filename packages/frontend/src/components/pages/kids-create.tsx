@@ -12,26 +12,28 @@ export class KidsCreate {
           <mapa-icon-logo/>
         </mapa-header>
 
-        <pre>image upload</pre>
+        <mapa-main>
+          <pre>image upload</pre>
 
-        <ion-item>
-          <ion-input type="text"
-                     placeholder="name"
-          />
-        </ion-item>
+          <ion-item>
+            <ion-input type="text"
+                       placeholder="name"
+            />
+          </ion-item>
 
-        <ion-item>
-          <ion-input type="date"
-                     placeholder="Date od birth"
-          />
-        </ion-item>
+          <ion-item>
+            <ion-input type="date"
+                       placeholder="Date od birth"
+            />
+          </ion-item>
 
-        <ion-button href="/dashboard"
-                    color="primary"
-                    expand="block"
-        >
-          Save
-        </ion-button>
+          <ion-button href="/dashboard"
+                      color="primary"
+                      expand="block"
+          >
+            Save
+          </ion-button>
+        </mapa-main>
       </ion-content>
     );
   }

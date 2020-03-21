@@ -6,8 +6,9 @@ import { Component, h } from '@stencil/core';
 export class Root {
 
   render() {
-    return (
-      <mapa-router/>
-    );
+    return [
+      <mapa-router/>,
+      <ion-nav/>
+    ];
   }
 }
