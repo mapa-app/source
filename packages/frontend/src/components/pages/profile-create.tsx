@@ -12,18 +12,22 @@ export class ProfileCreate {
           <mapa-icon-logo/>
         </mapa-header>
 
-        <ion-button href="/family/status"
-                    color="primary"
-                    expand="block"
-        >
-          I am a mom
-        </ion-button>
-        <ion-button href="/family/status"
-                    color="primary"
-                    expand="block"
-        >
-          I am a dad
-        </ion-button>
+        <mapa-main>
+          <ion-button href="/family/status"
+                      color="primary"
+                      expand="block"
+          >
+            <mapa-icon-notify/>
+            I am a mom
+          </ion-button>
+          <ion-button href="/family/status"
+                      color="primary"
+                      expand="block"
+          >
+            <mapa-icon-notify/>
+            I am a dad
+          </ion-button>
+        </mapa-main>
       </ion-content>
     );
   }

@@ -12,13 +12,15 @@ export class Explore {
           <mapa-icon-logo/>
         </mapa-header>
 
-        <ion-button href="/explore"
-                    color="primary"
-                    expand="block"
-                    routerDirection="back"
-        >
-          Explore MaPa
-        </ion-button>
+        <mapa-main>
+          <ion-button href="/explore"
+                      color="primary"
+                      expand="block"
+                      routerDirection="back"
+          >
+            Explore MaPa
+          </ion-button>
+        </mapa-main>
       </ion-content>
     );
   }

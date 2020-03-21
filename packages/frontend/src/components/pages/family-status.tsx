@@ -12,25 +12,27 @@ export class FamilyStatus {
           <mapa-icon-logo/>
         </mapa-header>
 
-        <ion-button>
-          Together
-        </ion-button>
-        <ion-button>
-          Separated
-        </ion-button>
-        <ion-button>
-          Patched
-        </ion-button>
-        <ion-button>
-          Single
-        </ion-button>
+        <mapa-main>
+          <ion-button>
+            Together
+          </ion-button>
+          <ion-button>
+            Separated
+          </ion-button>
+          <ion-button>
+            Patched
+          </ion-button>
+          <ion-button>
+            Single
+          </ion-button>
 
-        <ion-button href="/kid/create"
-                    color="primary"
-                    expand="block"
-        >
-          next
-        </ion-button>
+          <ion-button href="/kid/create"
+                      color="primary"
+                      expand="block"
+          >
+            next
+          </ion-button>
+        </mapa-main>
       </ion-content>
     );
   }
