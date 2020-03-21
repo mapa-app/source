@@ -8,9 +8,9 @@ export class Explore {
   render() {
     return (
       <ion-content class="ion-padding ion-text-center">
-        <mapa-logo/>
-
-        <h1>Explore MaPa</h1>
+        <mapa-header headline="Explore MaPa">
+          <mapa-icon-logo/>
+        </mapa-header>
 
         <ion-grid>
           <ion-row>

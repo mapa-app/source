@@ -16,7 +16,7 @@
 // Custom styles
 @import 'utils';
 
-@include font-face('Baloo Bhai 2', '/assets/fonts/baloo-bhai-2/baloo-bhai-2-latin-400', 400, normal);
+@include font-face('Baloo Bhai', '/assets/fonts/baloo-bhai/baloo-bhai-latin-400', 400, normal);
 
 :root {
   --color-transparent: #{$color-transparent};
@@ -29,6 +29,7 @@
   --color-orange: #{$color-orange};
   --color-blue-light: #{$color-blue-light};
   --color-blue: #{$color-blue};
+  --color-blue-dark: #{$color-blue-dark};
 
   --font-face-default: #{$font-face-default};
   --font-size-base: #{$font-size-base};
@@ -37,6 +38,6 @@
   --base-size: 20px;
 
 
-  --ion-background-color: var(--color-white);
+  --ion-background-color: linear-gradient(180deg, var(--color-orange) 0%, var(--color-white) 100%);
   --ion-font-family: var(--font-face-default);
 }

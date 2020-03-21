@@ -8,9 +8,10 @@ export class Dashboard {
   render() {
     return (
       <ion-content class="ion-padding ion-text-center">
-        <mapa-logo/>
+        <mapa-header headline="Dashboard">
+          <mapa-icon-logo/>
+        </mapa-header>
 
-        <h1>Dashboard</h1>
         <p>
           Welcome Anna!
         </p>

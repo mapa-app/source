@@ -13,8 +13,8 @@
     "start": "run-p start:*"
   },
   "dependencies": {
-    "@openfonts/baloo-bhai-2_latin": "0.0.1",
-    "css-reset-and-normalize": "2.1.0"
+    "css-reset-and-normalize": "2.1.0",
+    "typeface-baloo-bhai": "0.0.71"
   },
   "devDependencies": {
     "@ionic/core": "5.0.5",

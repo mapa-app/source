@@ -8,9 +8,10 @@ export class Welcome {
   render() {
     return (
       <ion-content class="ion-padding ion-text-center">
-        <mapa-logo/>
+        <mapa-header headline="Hi there!">
+          <mapa-icon-logo/>
+        </mapa-header>
 
-        <h1>Hi there!</h1>
         <p>
           Welcome to MaPa - your family assistant.
         </p>

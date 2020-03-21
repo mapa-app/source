@@ -8,9 +8,9 @@ export class ProfileCreate {
   render() {
     return (
       <ion-content class="ion-padding ion-text-center">
-        <mapa-icon-bulb/>
-
-        <h1>Create your profile</h1>
+        <mapa-header headline="Create your profile">
+          <mapa-icon-logo/>
+        </mapa-header>
 
         <ion-button href="/family/status"
                     color="primary"

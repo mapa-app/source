@@ -25,8 +25,8 @@ export const config: Config = {
           src: 'config.json'
         },
         {
-          src: '../node_modules/@openfonts/baloo-bhai-2_latin/files',
-          dest: 'assets/fonts/baloo-bhai-2'
+          src: '../node_modules/typeface-baloo-bhai/files',
+          dest: 'assets/fonts/baloo-bhai'
         }
       ],
       // comment the following line to disable service workers in production

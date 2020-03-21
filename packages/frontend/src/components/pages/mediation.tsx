@@ -8,9 +8,9 @@ export class Mediation {
   render() {
     return (
       <ion-content class="ion-padding ion-text-center">
-        <mapa-logo/>
-
-        <h1>Mediation</h1>
+        <mapa-header headline="Mediation">
+          <mapa-icon-logo/>
+        </mapa-header>
 
         <ion-button href="/explore"
                     color="primary"
