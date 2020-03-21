@@ -14,29 +14,13 @@ export const userResolver = {
       const user = await userModel.findById({ _id: id }).exec();
       return user;
     },
-    diary: async (parent, { user }, context, info) => {
-      const cuser = await userModel.findById({ _id: user.id }).exec();
-      const diary = await diaryModel.findOne({ user: cuser });
-      return diary
-    }
   },
   Mutation: {
-    createUser: async (parent, { name, password, role, family }, context, info) => {
-      const cfamily = await familyModel.findOne({ name: family.name });
-      if (cfamily == null) {
-        const createdFamily = await familyModel.create({ name: family.name });
-        const user = await userModel.create({ name, password, role, createdFamily });
-        return user;
-      } else {
-        const user = await userModel.create({ name, password, role, cfamily });
+    createUser: async (parent, { name, password, role }, context, info) => {
+        const user = await userModel.create({ name, password, role });
         return user;
       }
 
-    },
-    addDiaryEntry: async (parent, { id, entry }, context, info) => {
-      const user = await userModel.findById({ _id: id }).exec();
-      await diaryModel.create({ user: user, diaryEntries: [{ text: entry.text, date: entry.date }] });
-      return true;
     }
-  }
+  
 };

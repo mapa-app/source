@@ -17,4 +17,4 @@ const diaryEntrySchema = new mongoose.Schema({
 });
 
 
-export const diaryEntryModel = mongoose.model('diaryEntry', diaryEntrySchema);
+export const diaryEntryModel = mongoose.model<DiaryEntry>('diaryEntry', diaryEntrySchema);

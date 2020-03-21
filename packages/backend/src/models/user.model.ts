@@ -20,11 +20,8 @@ const userSchema = new mongoose.Schema({
   role:{
       type:roleModel.schema,
       required: true,
-  },
-  family:{
-    type:familyModel.schema
   }
 });
 
 
-export const userModel = mongoose.model('user', userSchema);
+export const userModel = mongoose.model<User>('user', userSchema);

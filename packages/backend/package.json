@@ -19,6 +19,8 @@
 		"mongoose": "5.9.5"
 	},
 	"devDependencies": {
+    "@babel/preset-env": "7.9.0",
+    "@babel/preset-typescript": "7.9.0",
 		"@types/bcrypt": "3.0.0",
 		"@types/cors": "2.8.6",
 		"@types/express": "4.17.3",
@@ -30,5 +32,11 @@
 		"ts-node-dev": "1.0.0-pre.44",
 		"typescript": "3.8.3",
     "webpack-node-externals": "1.7.2"
-	}
+	},
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-typescript"
+    ]
+  }
 }

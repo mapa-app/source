@@ -6,6 +6,7 @@ export const schema = gql`
     name: String!
     diary: Diary!
     role: String!
+    family:Family!
   }
 
 
@@ -22,6 +23,13 @@ export const schema = gql`
   input DiaryEntryInput {
     text: String!
     date: String!
+  }
+
+  type Family{
+    name:String!
+    members:User!
+      
+ 
   }
 
   type DiaryEntryPayload{
@@ -45,10 +53,13 @@ export const schema = gql`
     user(id: ID!): User!
     login(name: String!, password: String!): String!
     diary(user:UserInput!):Diary!
+    family(name:String!):Family!
   }
 
   extend type Mutation {
-    createUser(name: String!, password: String!,role:RoleInput!,family:FamilyInput!): User!
+    createUser(name: String!, password: String!,role:RoleInput!): User!
+    createFamily(name:String!):Family!
     addDiaryEntry(id:ID!,entry:DiaryEntryInput!): Boolean!
+    addMember(id:ID!,family:FamilyInput!):Family!
   }
 `;
