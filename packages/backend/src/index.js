@@ -43,6 +43,6 @@ const server = new ApolloServer({
 
 server.applyMiddleware({ app, path: '/graphql' });
 
-app.listen(5000, () => {
-// mongoose.connect('mongodb://localhost:27017/graphql');
+app.listen(4000, () => {
+ mongoose.connect('mongodb://localhost:27017/graphql');
 });

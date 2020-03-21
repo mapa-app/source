@@ -1,0 +1,22 @@
+version: '1'
+services:
+  node:
+    image: node:12
+    volumes:
+        - ./:/app
+        - /app/node_modules
+    ports:
+      - "4000:4000"
+    links:
+      - mongodb_container
+  mongodb_container:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data_container:/data/db
+volumes:
+  mongodb_data_container:
