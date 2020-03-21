@@ -8,9 +8,9 @@ export class Documents {
   render() {
     return (
       <ion-content class="ion-padding ion-text-center">
-        <mapa-logo/>
-
-        <h1>Documents</h1>
+        <mapa-header headline="Documents">
+          <mapa-icon-logo/>
+        </mapa-header>
 
         <ion-button href="/explore"
                     color="primary"

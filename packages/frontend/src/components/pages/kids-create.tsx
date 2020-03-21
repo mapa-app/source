@@ -8,9 +8,9 @@ export class KidsCreate {
   render() {
     return (
       <ion-content class="ion-padding ion-text-center">
-        <mapa-icon-bulb/>
-
-        <h1>Let's make your kid's profile</h1>
+        <mapa-header headline="Let's make your kid's profile">
+          <mapa-icon-logo/>
+        </mapa-header>
 
         <pre>image upload</pre>
 

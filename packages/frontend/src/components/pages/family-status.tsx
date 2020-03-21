@@ -8,9 +8,9 @@ export class FamilyStatus {
   render() {
     return (
       <ion-content class="ion-padding ion-text-center">
-        <mapa-icon-bulb/>
-
-        <h1>Your family status</h1>
+        <mapa-header headline="Your family status">
+          <mapa-icon-logo/>
+        </mapa-header>
 
         <ion-button>
           Together

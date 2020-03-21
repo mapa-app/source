@@ -18,6 +18,13 @@ export namespace Components {
     }
     interface MapaFamilyStatus {
     }
+    interface MapaHeader {
+        "headline"?: string;
+    }
+    interface MapaIcon {
+    }
+    interface MapaIconLogo {
+    }
     interface MapaKidsCreate {
     }
     interface MapaMediation {
@@ -71,6 +78,24 @@ declare global {
         prototype: HTMLMapaFamilyStatusElement;
         new (): HTMLMapaFamilyStatusElement;
     };
+    interface HTMLMapaHeaderElement extends Components.MapaHeader, HTMLStencilElement {
+    }
+    var HTMLMapaHeaderElement: {
+        prototype: HTMLMapaHeaderElement;
+        new (): HTMLMapaHeaderElement;
+    };
+    interface HTMLMapaIconElement extends Components.MapaIcon, HTMLStencilElement {
+    }
+    var HTMLMapaIconElement: {
+        prototype: HTMLMapaIconElement;
+        new (): HTMLMapaIconElement;
+    };
+    interface HTMLMapaIconLogoElement extends Components.MapaIconLogo, HTMLStencilElement {
+    }
+    var HTMLMapaIconLogoElement: {
+        prototype: HTMLMapaIconLogoElement;
+        new (): HTMLMapaIconLogoElement;
+    };
     interface HTMLMapaKidsCreateElement extends Components.MapaKidsCreate, HTMLStencilElement {
     }
     var HTMLMapaKidsCreateElement: {
@@ -120,6 +145,9 @@ declare global {
         "mapa-documents": HTMLMapaDocumentsElement;
         "mapa-explore": HTMLMapaExploreElement;
         "mapa-family-status": HTMLMapaFamilyStatusElement;
+        "mapa-header": HTMLMapaHeaderElement;
+        "mapa-icon": HTMLMapaIconElement;
+        "mapa-icon-logo": HTMLMapaIconLogoElement;
         "mapa-kids-create": HTMLMapaKidsCreateElement;
         "mapa-mediation": HTMLMapaMediationElement;
         "mapa-profile": HTMLMapaProfileElement;
@@ -141,6 +169,13 @@ declare namespace LocalJSX {
     interface MapaExplore {
     }
     interface MapaFamilyStatus {
+    }
+    interface MapaHeader {
+        "headline"?: string;
+    }
+    interface MapaIcon {
+    }
+    interface MapaIconLogo {
     }
     interface MapaKidsCreate {
     }
@@ -164,6 +199,9 @@ declare namespace LocalJSX {
         "mapa-documents": MapaDocuments;
         "mapa-explore": MapaExplore;
         "mapa-family-status": MapaFamilyStatus;
+        "mapa-header": MapaHeader;
+        "mapa-icon": MapaIcon;
+        "mapa-icon-logo": MapaIconLogo;
         "mapa-kids-create": MapaKidsCreate;
         "mapa-mediation": MapaMediation;
         "mapa-profile": MapaProfile;
@@ -183,6 +221,9 @@ declare module "@stencil/core" {
             "mapa-documents": LocalJSX.MapaDocuments & JSXBase.HTMLAttributes<HTMLMapaDocumentsElement>;
             "mapa-explore": LocalJSX.MapaExplore & JSXBase.HTMLAttributes<HTMLMapaExploreElement>;
             "mapa-family-status": LocalJSX.MapaFamilyStatus & JSXBase.HTMLAttributes<HTMLMapaFamilyStatusElement>;
+            "mapa-header": LocalJSX.MapaHeader & JSXBase.HTMLAttributes<HTMLMapaHeaderElement>;
+            "mapa-icon": LocalJSX.MapaIcon & JSXBase.HTMLAttributes<HTMLMapaIconElement>;
+            "mapa-icon-logo": LocalJSX.MapaIconLogo & JSXBase.HTMLAttributes<HTMLMapaIconLogoElement>;
             "mapa-kids-create": LocalJSX.MapaKidsCreate & JSXBase.HTMLAttributes<HTMLMapaKidsCreateElement>;
             "mapa-mediation": LocalJSX.MapaMediation & JSXBase.HTMLAttributes<HTMLMapaMediationElement>;
             "mapa-profile": LocalJSX.MapaProfile & JSXBase.HTMLAttributes<HTMLMapaProfileElement>;

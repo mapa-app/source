@@ -1,0 +1,10 @@
+@import '../../../styles/utils';
+
+:host {
+  color: var(--icon-color, currentColor);
+  display: block;
+  padding: var(--icon-spacing, 0);
+  height: auto;
+  width: var(--icon-size, var(--base-size));
+  font-size: 0;
+}
