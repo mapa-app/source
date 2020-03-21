@@ -9,20 +9,18 @@ export class Home {
   render() {
     return [
       <ion-header>
-        <ion-toolbar color="primary">
-          <ion-title>Home</ion-title>
-        </ion-toolbar>
+        <mapa-logo/>
       </ion-header>,
 
-      <ion-content class="ion-padding">
+      <ion-content class="ion-padding ion-text-center">
+        <h1>Hi there!</h1>
         <p>
-          Welcome to the PWA Toolkit. You can use this starter to build entire
-          apps with web components using Stencil and ionic/core! Check out the
-          README for everything that comes in this starter out of the box and
-          check out our docs on <a href="https://stenciljs.com">stenciljs.com</a> to get started.
+          Welcome to MaPa - your family assistant.
         </p>
 
-        <ion-button href="/profile/ionic" expand="block">Profile page</ion-button>
+        <ion-button href="/profile/ionic" expand="block">Let's start</ion-button>
+        <ion-button href="/profile/ionic" expand="block">Accept invitation</ion-button>
+        <ion-button href="/profile/ionic" expand="block">I already have an account</ion-button>
       </ion-content>
     ];
   }
