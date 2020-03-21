@@ -2,7 +2,7 @@
   "name": "@mapa/frontend",
   "version": "0.0.0",
   "files": [
-    "dist/"
+    "www/"
   ],
   "scripts": {
     "build:schema": "typescript-json-schema --required --out src/config.schema.json src/config.d.ts Config",
@@ -13,14 +13,13 @@
     "start": "run-p start:*"
   },
   "dependencies": {
-    "css-reset-and-normalize": "2.1.0",
-    "typeface-ubuntu": "0.0.65"
+    "@openfonts/baloo-bhai-2_latin": "0.0.1",
+    "css-reset-and-normalize": "2.1.0"
   },
   "devDependencies": {
     "@ionic/core": "5.0.5",
     "@stencil/core": "1.11.0",
     "@stencil/postcss": "1.0.1",
-    "@stencil/router": "1.0.1",
     "@stencil/sass": "1.1.1",
     "@types/node": "12.12.30",
     "autoprefixer": "9.7.4",

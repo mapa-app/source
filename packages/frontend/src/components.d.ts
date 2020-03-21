@@ -6,20 +6,82 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MapaHome {
+    interface MapaCalendar {
+    }
+    interface MapaDashboard {
+    }
+    interface MapaDiary {
+    }
+    interface MapaDocuments {
+    }
+    interface MapaExplore {
+    }
+    interface MapaFamilyStatus {
+    }
+    interface MapaKidsCreate {
+    }
+    interface MapaMediation {
     }
     interface MapaProfile {
         "name": string;
     }
+    interface MapaProfileCreate {
+    }
     interface MapaRoot {
+    }
+    interface MapaRouter {
+    }
+    interface MapaWelcome {
     }
 }
 declare global {
-    interface HTMLMapaHomeElement extends Components.MapaHome, HTMLStencilElement {
+    interface HTMLMapaCalendarElement extends Components.MapaCalendar, HTMLStencilElement {
     }
-    var HTMLMapaHomeElement: {
-        prototype: HTMLMapaHomeElement;
-        new (): HTMLMapaHomeElement;
+    var HTMLMapaCalendarElement: {
+        prototype: HTMLMapaCalendarElement;
+        new (): HTMLMapaCalendarElement;
+    };
+    interface HTMLMapaDashboardElement extends Components.MapaDashboard, HTMLStencilElement {
+    }
+    var HTMLMapaDashboardElement: {
+        prototype: HTMLMapaDashboardElement;
+        new (): HTMLMapaDashboardElement;
+    };
+    interface HTMLMapaDiaryElement extends Components.MapaDiary, HTMLStencilElement {
+    }
+    var HTMLMapaDiaryElement: {
+        prototype: HTMLMapaDiaryElement;
+        new (): HTMLMapaDiaryElement;
+    };
+    interface HTMLMapaDocumentsElement extends Components.MapaDocuments, HTMLStencilElement {
+    }
+    var HTMLMapaDocumentsElement: {
+        prototype: HTMLMapaDocumentsElement;
+        new (): HTMLMapaDocumentsElement;
+    };
+    interface HTMLMapaExploreElement extends Components.MapaExplore, HTMLStencilElement {
+    }
+    var HTMLMapaExploreElement: {
+        prototype: HTMLMapaExploreElement;
+        new (): HTMLMapaExploreElement;
+    };
+    interface HTMLMapaFamilyStatusElement extends Components.MapaFamilyStatus, HTMLStencilElement {
+    }
+    var HTMLMapaFamilyStatusElement: {
+        prototype: HTMLMapaFamilyStatusElement;
+        new (): HTMLMapaFamilyStatusElement;
+    };
+    interface HTMLMapaKidsCreateElement extends Components.MapaKidsCreate, HTMLStencilElement {
+    }
+    var HTMLMapaKidsCreateElement: {
+        prototype: HTMLMapaKidsCreateElement;
+        new (): HTMLMapaKidsCreateElement;
+    };
+    interface HTMLMapaMediationElement extends Components.MapaMediation, HTMLStencilElement {
+    }
+    var HTMLMapaMediationElement: {
+        prototype: HTMLMapaMediationElement;
+        new (): HTMLMapaMediationElement;
     };
     interface HTMLMapaProfileElement extends Components.MapaProfile, HTMLStencilElement {
     }
@@ -27,39 +89,107 @@ declare global {
         prototype: HTMLMapaProfileElement;
         new (): HTMLMapaProfileElement;
     };
+    interface HTMLMapaProfileCreateElement extends Components.MapaProfileCreate, HTMLStencilElement {
+    }
+    var HTMLMapaProfileCreateElement: {
+        prototype: HTMLMapaProfileCreateElement;
+        new (): HTMLMapaProfileCreateElement;
+    };
     interface HTMLMapaRootElement extends Components.MapaRoot, HTMLStencilElement {
     }
     var HTMLMapaRootElement: {
         prototype: HTMLMapaRootElement;
         new (): HTMLMapaRootElement;
     };
+    interface HTMLMapaRouterElement extends Components.MapaRouter, HTMLStencilElement {
+    }
+    var HTMLMapaRouterElement: {
+        prototype: HTMLMapaRouterElement;
+        new (): HTMLMapaRouterElement;
+    };
+    interface HTMLMapaWelcomeElement extends Components.MapaWelcome, HTMLStencilElement {
+    }
+    var HTMLMapaWelcomeElement: {
+        prototype: HTMLMapaWelcomeElement;
+        new (): HTMLMapaWelcomeElement;
+    };
     interface HTMLElementTagNameMap {
-        "mapa-home": HTMLMapaHomeElement;
+        "mapa-calendar": HTMLMapaCalendarElement;
+        "mapa-dashboard": HTMLMapaDashboardElement;
+        "mapa-diary": HTMLMapaDiaryElement;
+        "mapa-documents": HTMLMapaDocumentsElement;
+        "mapa-explore": HTMLMapaExploreElement;
+        "mapa-family-status": HTMLMapaFamilyStatusElement;
+        "mapa-kids-create": HTMLMapaKidsCreateElement;
+        "mapa-mediation": HTMLMapaMediationElement;
         "mapa-profile": HTMLMapaProfileElement;
+        "mapa-profile-create": HTMLMapaProfileCreateElement;
         "mapa-root": HTMLMapaRootElement;
+        "mapa-router": HTMLMapaRouterElement;
+        "mapa-welcome": HTMLMapaWelcomeElement;
     }
 }
 declare namespace LocalJSX {
-    interface MapaHome {
+    interface MapaCalendar {
+    }
+    interface MapaDashboard {
+    }
+    interface MapaDiary {
+    }
+    interface MapaDocuments {
+    }
+    interface MapaExplore {
+    }
+    interface MapaFamilyStatus {
+    }
+    interface MapaKidsCreate {
+    }
+    interface MapaMediation {
     }
     interface MapaProfile {
         "name"?: string;
     }
+    interface MapaProfileCreate {
+    }
     interface MapaRoot {
     }
+    interface MapaRouter {
+    }
+    interface MapaWelcome {
+    }
     interface IntrinsicElements {
-        "mapa-home": MapaHome;
+        "mapa-calendar": MapaCalendar;
+        "mapa-dashboard": MapaDashboard;
+        "mapa-diary": MapaDiary;
+        "mapa-documents": MapaDocuments;
+        "mapa-explore": MapaExplore;
+        "mapa-family-status": MapaFamilyStatus;
+        "mapa-kids-create": MapaKidsCreate;
+        "mapa-mediation": MapaMediation;
         "mapa-profile": MapaProfile;
+        "mapa-profile-create": MapaProfileCreate;
         "mapa-root": MapaRoot;
+        "mapa-router": MapaRouter;
+        "mapa-welcome": MapaWelcome;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "mapa-home": LocalJSX.MapaHome & JSXBase.HTMLAttributes<HTMLMapaHomeElement>;
+            "mapa-calendar": LocalJSX.MapaCalendar & JSXBase.HTMLAttributes<HTMLMapaCalendarElement>;
+            "mapa-dashboard": LocalJSX.MapaDashboard & JSXBase.HTMLAttributes<HTMLMapaDashboardElement>;
+            "mapa-diary": LocalJSX.MapaDiary & JSXBase.HTMLAttributes<HTMLMapaDiaryElement>;
+            "mapa-documents": LocalJSX.MapaDocuments & JSXBase.HTMLAttributes<HTMLMapaDocumentsElement>;
+            "mapa-explore": LocalJSX.MapaExplore & JSXBase.HTMLAttributes<HTMLMapaExploreElement>;
+            "mapa-family-status": LocalJSX.MapaFamilyStatus & JSXBase.HTMLAttributes<HTMLMapaFamilyStatusElement>;
+            "mapa-kids-create": LocalJSX.MapaKidsCreate & JSXBase.HTMLAttributes<HTMLMapaKidsCreateElement>;
+            "mapa-mediation": LocalJSX.MapaMediation & JSXBase.HTMLAttributes<HTMLMapaMediationElement>;
             "mapa-profile": LocalJSX.MapaProfile & JSXBase.HTMLAttributes<HTMLMapaProfileElement>;
+            "mapa-profile-create": LocalJSX.MapaProfileCreate & JSXBase.HTMLAttributes<HTMLMapaProfileCreateElement>;
             "mapa-root": LocalJSX.MapaRoot & JSXBase.HTMLAttributes<HTMLMapaRootElement>;
+            "mapa-router": LocalJSX.MapaRouter & JSXBase.HTMLAttributes<HTMLMapaRouterElement>;
+            "mapa-welcome": LocalJSX.MapaWelcome & JSXBase.HTMLAttributes<HTMLMapaWelcomeElement>;
         }
     }
 }
