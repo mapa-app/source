@@ -1,8 +1,7 @@
 import { Component, Prop, State, h } from '@stencil/core';
 
 @Component({
-  tag: 'mapa-profile',
-  styleUrl: 'profile.scss'
+  tag: 'mapa-profile'
 })
 export class Profile {
 
@@ -17,16 +16,7 @@ export class Profile {
   }
 
   render() {
-    return [
-      <ion-header>
-        <ion-toolbar color="primary">
-          <ion-buttons slot="start">
-            <ion-back-button defaultHref="/" />
-          </ion-buttons>
-          <ion-title>Profile: {this.name}</ion-title>
-        </ion-toolbar>
-      </ion-header>,
-
+    return (
       <ion-content class="ion-padding">
         <p>
           Hi! My name is {this.formattedName()}. My name was passed in through a
@@ -41,6 +31,6 @@ export class Profile {
           />
         </ion-item>
       </ion-content>
-    ];
+    );
   }
 }
