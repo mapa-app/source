@@ -1,12 +1,11 @@
 import bcrypt from 'bcrypt';
 import mongoose from 'mongoose';
+import {roleModel} from './role.model'
 
 export interface User extends mongoose.Document {
-  name: any;
-  password: any;
+  type: any;
 }
-
-export const userSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -15,14 +14,12 @@ export const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
-  }
+  },
+  /*role:{
+      type:roleModel,
+      required: true,
+  }*/
 });
 
-userSchema.pre<User>('save', function(next) {
-  const self = this;
-  const hashedPassword = bcrypt.hashSync(self.password, 12);
-  this.password = hashedPassword;
-  next();
-});
 
 export const userModel = mongoose.model<User>('user', userSchema);

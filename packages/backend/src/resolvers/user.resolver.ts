@@ -5,11 +5,12 @@ import { AuthenticationError } from 'apollo-server';
 export const userResolver = {
   Query: {
     user: async (parent, { id }, { models: { userModel }, me }, info) => {
-      if (!me) {
-        throw new AuthenticationError('You are not authenticated');
-      }
       const user = await userModel.findById({ _id: id }).exec();
       return user;
+    },
+    diary: async (parent, { id }, { models: { userModel }, me }, info) => {
+      const user = await userModel.findById({ _id: id }).exec();
+      return null
     },
     login: async (parent, { name, password }, { models: { userModel } }, info) => {
       const user = await userModel.findOne({ name }).exec();
@@ -32,9 +33,13 @@ export const userResolver = {
     },
   },
   Mutation: {
-    createUser: async (parent, { name, password }, { models: { userModel } }, info) => {
-      const user = await userModel.create({ name, password });
+    createUser: async (parent, { name, password,role }, { models: { userModel } }, info) => {
+      const user = await userModel.create({ name, password,role });
       return user;
+    },
+    addDiaryEntry: async (parent, { user, entry }, { models: { userModel } }, info) => {
+      console.log("add " + user)
+      return true;
     }
   }
 };

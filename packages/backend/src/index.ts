@@ -4,42 +4,35 @@ import jwt from 'jsonwebtoken';
 import mongoose from 'mongoose';
 import { ApolloServer, AuthenticationError } from 'apollo-server-express';
 
-import { linkSchema } from './schemas';
-
-import { userSchema } from './schemas/user.schema';
+import { linkSchema } from './schemas/';
+import { schema } from './schemas/schema';
 import { userResolver } from './resolvers/user.resolver';
 import { userModel } from './models/user.model';
+import { diaryModel } from './models/diary.model';
+import { roleModel } from './models/role.model';
+import { diaryEntryModel } from './models/diaryentry.model';
 
 const app = express();
 app.use(cors());
 
-const getUser = async req => {
-  const token = req.headers['token'];
-  if (token) {
-    try {
-      return await jwt.verify(token, 'riddlemethis');
-    } catch (e) {
-      throw new AuthenticationError('Your session expired. Sign in again.');
-    }
-  }
-};
 
 const server = new ApolloServer({
   typeDefs: [
-    linkSchema,
-    userSchema
+
+  linkSchema,schema
+
   ],
   resolvers: [
     userResolver
   ],
   context: async ({ req }) => {
     if (req) {
-      const me = await getUser(req);
 
       return {
-        me,
+
         models: {
           userModel
+          
         }
       };
     }

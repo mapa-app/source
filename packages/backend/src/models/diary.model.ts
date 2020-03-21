@@ -1,0 +1,24 @@
+import mongoose from 'mongoose';
+
+import {userModel} from './user.model'
+import {diaryEntryModel} from './diaryentry.model'
+
+export interface Diary extends mongoose.Document {
+  user: any;
+  diaryEntries: any;
+}
+
+const diarySchema = new mongoose.Schema({
+  user: {
+    type: userModel,
+    required: true
+  },
+  diaryEntries:{
+    type: diaryEntryModel,
+    default: undefined
+  }
+});
+
+
+
+export const diaryModel = mongoose.model<Diary>('user', diarySchema);
