@@ -18,6 +18,6 @@ connect('mongodb://ds233596.mlab.com:33596/mapa', {
   // TODO: use credentials from env vars!
   user: 'mapa',
   pass: 'i9-Af4xeq57C#34'
-});
+}).then();
 
 export const handler = server.createHandler();
