@@ -14,19 +14,22 @@ const server = new ApolloServer({
   ]
 });
 
+export const handler = server.createHandler();
+
+console.log('created handler');
+
 connect('mongodb://ds233596.mlab.com:33596/mapa', {
   // TODO: use credentials from env vars!
   user: 'mapa',
   pass: 'i9-Af4xeq57C#34',
   bufferCommands: false,
   bufferMaxEntries: 0,
-  useNewUrlParser: true
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 
 }).then(mongoose => {
-  console.log('success');
+  console.log('connected to mongodb');
 }).catch(e => {
-  console.error('error', e)
+  console.error('error connecting to mongodb', e)
   process.exit()
 })
-
-export const handler = server.createHandler();
