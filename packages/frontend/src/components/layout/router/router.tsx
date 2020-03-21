@@ -9,7 +9,7 @@ export class Router {
     return [
       <ion-router useHash={ false }>
         <ion-route-redirect from="/"
-                            to="mapa-welcome"
+                            to="/welcome"
         />
 
         <ion-route url="/profile/create"
