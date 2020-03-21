@@ -19,6 +19,9 @@ export const config: Config = {
       baseUrl: 'https://frontend.mapa.local/',
       copy: [
         {
+          src: '_redirects'
+        },
+        {
           src: 'config.json'
         },
         {
