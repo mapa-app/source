@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt';
 import mongoose from 'mongoose';
 import {roleModel} from './role.model'
+import {familyModel} from './family.model'
 
 export interface User extends mongoose.Document {
   type: any;
@@ -19,8 +20,11 @@ const userSchema = new mongoose.Schema({
   role:{
       type:roleModel.schema,
       required: true,
+  },
+  family:{
+    type:familyModel.schema
   }
 });
 
 
-export const userModel = mongoose.model<User>('user', userSchema);
+export const userModel = mongoose.model('user', userSchema);

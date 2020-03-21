@@ -1,4 +1,4 @@
-const { ApolloServer, gql } = require('apollo-server-lambda')
+import { ApolloServer, gql } from 'apollo-server-lambda'
 import mongoose from 'mongoose';
 import { linkSchema } from '../schemas/';
 import { schema } from '../schemas/schema';

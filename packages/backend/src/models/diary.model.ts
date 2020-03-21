@@ -20,4 +20,4 @@ const diarySchema = new mongoose.Schema({
 
 
 
-export const diaryModel = mongoose.model<Diary>('diary', diarySchema);
+export const diaryModel = mongoose.model('diary', diarySchema);
