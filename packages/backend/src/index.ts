@@ -25,18 +25,7 @@ const server = new ApolloServer({
   resolvers: [
     userResolver
   ],
-  context: async ({ req }) => {
-    if (req) {
-
-      return {
-
-        models: {
-          userModel
-          
-        }
-      };
-    }
-  }
+  
 });
 
 

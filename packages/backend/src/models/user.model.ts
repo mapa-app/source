@@ -5,6 +5,7 @@ import {roleModel} from './role.model'
 export interface User extends mongoose.Document {
   type: any;
 }
+
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -15,10 +16,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  /*role:{
-      type:roleModel,
+  role:{
+      type:roleModel.schema,
       required: true,
-  }*/
+  }
 });
 
 

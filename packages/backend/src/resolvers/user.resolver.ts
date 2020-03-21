@@ -1,44 +1,34 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { AuthenticationError } from 'apollo-server';
+import { userModel } from '../models/user.model';
+import { diaryModel, Diary } from '../models/diary.model';
+import { roleModel } from '../models/role.model';
+import { diaryEntryModel } from '../models/diaryentry.model';
+import { duplicateArgMessage } from 'graphql/validation/rules/UniqueArgumentNames';
 
 export const userResolver = {
   Query: {
-    user: async (parent, { id }, { models: { userModel }, me }, info) => {
+    user: async (parent, { id }, context, info) => {
       const user = await userModel.findById({ _id: id }).exec();
       return user;
     },
-    diary: async (parent, { id }, { models: { userModel }, me }, info) => {
-      const user = await userModel.findById({ _id: id }).exec();
-      return null
-    },
-    login: async (parent, { name, password }, { models: { userModel } }, info) => {
-      const user = await userModel.findOne({ name }).exec();
-
-      if (!user) {
-        throw new AuthenticationError('Invalid credentials');
-      }
-
-      const matchPasswords = bcrypt.compareSync(password, user.password);
-
-      if (!matchPasswords) {
-        throw new AuthenticationError('Invalid credentials');
-      }
-
-      const token = jwt.sign({ id: user.id }, 'riddlemethis', { expiresIn: 24 * 10 * 50 });
-
-      return {
-        token,
-      };
-    },
+    diary: async (parent, { user }, context, info) => {
+      console.log(user)
+      const cuser = await userModel.findById({ _id: user.id }).exec();
+      const diary = await diaryModel.findOne({ user:cuser });
+      console.log(diary)
+      return diary.diaryEntries
+    }
   },
   Mutation: {
-    createUser: async (parent, { name, password,role }, { models: { userModel } }, info) => {
+    createUser: async (parent, { name, password,role },context, info) => {
       const user = await userModel.create({ name, password,role });
       return user;
     },
-    addDiaryEntry: async (parent, { user, entry }, { models: { userModel } }, info) => {
-      console.log("add " + user)
+    addDiaryEntry: async (parent, { id, entry }, context, info) => {
+      const user = await userModel.findById({ _id: id }).exec();
+      const diary = await diaryModel.create({user:user,diaryEntries:[{text:entry.text, date:entry.date}]});
       return true;
     }
   }

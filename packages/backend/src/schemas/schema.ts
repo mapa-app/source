@@ -36,14 +36,18 @@ export const schema = gql`
     id: ID!
   }
 
+  input RoleInput{
+    type:String!
+  }
+
   extend type Query {
     user(id: ID!): User!
     login(name: String!, password: String!): String!
-    diary(user:UserInput!):Diary!
+    diary(user:UserInput!):[DiaryEntry]!
   }
 
   extend type Mutation {
-    createUser(name: String!, password: String!): User!
-    addDiaryEntry(id:ID!,entry:DiaryEntryInput!):Boolean!
+    createUser(name: String!, password: String!,role:RoleInput!): User!
+    addDiaryEntry(id:ID!,entry:DiaryEntryInput!): Boolean!
   }
 `;

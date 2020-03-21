@@ -10,15 +10,14 @@ export interface Diary extends mongoose.Document {
 
 const diarySchema = new mongoose.Schema({
   user: {
-    type: userModel,
+    type: userModel.schema,
     required: true
   },
   diaryEntries:{
-    type: diaryEntryModel,
-    default: undefined
+    type: [diaryEntryModel.schema]
   }
 });
 
 
 
-export const diaryModel = mongoose.model<Diary>('user', diarySchema);
+export const diaryModel = mongoose.model<Diary>('diary', diarySchema);
