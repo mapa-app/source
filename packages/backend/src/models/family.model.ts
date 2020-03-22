@@ -1,9 +1,10 @@
 import mongoose from 'mongoose';
 
 export interface Family extends mongoose.Document {
-  name: String;
-  children:[String];
-  parents:[String];
+  name: string;
+  state: 'TOGETHER' | 'DIVORCED' | 'PATCHED' | 'SINGLE';
+  children: string[];
+  parents: string[];
 }
 
 const familySchema = new mongoose.Schema({
@@ -12,18 +13,18 @@ const familySchema = new mongoose.Schema({
     unique: true,
     required: true
   },
-  state:{
-    type:String,
-    required:true
+  state: {
+    type: String,
+    enum: ['TOGETHER', 'DIVORCED', 'PATCHED', 'SINGLE'],
+    required: true
   },
-  children:{
-    type:[String]
+  children: {
+    type: [String]
   },
-  parents:{
-    type:[String]
+  parents: {
+    type: [String]
   }
 });
-
 
 
 export const familyModel = mongoose.model<Family>('family', familySchema);

@@ -11,7 +11,7 @@ export class FamilyState implements ComponentInterface {
   active = false;
 
   @Prop()
-  status: 'together' | 'divorced' | 'patched' | 'single';
+  status: 'TOGETHER' | 'DIVORCED' | 'PATCHED' | 'SINGLE';
 
   render() {
     return (

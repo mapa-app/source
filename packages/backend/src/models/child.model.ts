@@ -1,12 +1,12 @@
 import mongoose from 'mongoose';
 
 export interface Child extends mongoose.Document {
-  name: String;
+  name: string;
   birthdate: Date;
-  gender: String;
-  image: String;
-  color: String;
-  password: String;
+  gender: 'FEMALE' | 'MALE';
+  image: string;
+  color: string;
+  password: string;
 }
 
 const childSchema = new mongoose.Schema({
@@ -19,7 +19,8 @@ const childSchema = new mongoose.Schema({
     type: Date
   },
   gender: {
-    type: String
+    type: String,
+    enum: ['FEMALE', 'MALE']
   },
   image: {
     type: String

@@ -7,12 +7,12 @@ import { Component, ComponentInterface, h, Prop } from '@stencil/core';
 export class IconGender implements ComponentInterface {
 
   @Prop()
-  gender: 'female' | 'male' = 'female';
+  gender: 'FEMALE' | 'MALE' = 'FEMALE';
 
   render() {
     return (
       <mapa-icon>
-        { this.gender === 'female' && (
+        { this.gender === 'FEMALE' && (
           <svg version="1.1"
                xmlns="http://www.w3.org/2000/svg"
                viewBox="0 0 26 38"
@@ -22,7 +22,7 @@ export class IconGender implements ComponentInterface {
             />
           </svg>
         ) }
-        { this.gender === 'male' && (
+        { this.gender === 'MALE' && (
           <svg version="1.1"
                xmlns="http://www.w3.org/2000/svg"
                viewBox="0 0 31 31"

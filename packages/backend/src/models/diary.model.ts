@@ -4,7 +4,7 @@ import {diaryEntryModel, DiaryEntry} from './diaryentry.model'
 
 export interface Diary extends mongoose.Document {
   family: Family;
-  diaryEntries: [DiaryEntry];
+  diaryEntries: DiaryEntry[];
 }
 
 const diarySchema = new mongoose.Schema({

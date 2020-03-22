@@ -6,7 +6,7 @@ import { Component, ComponentInterface, h, State } from '@stencil/core';
 export class FamilyStatus implements ComponentInterface {
 
   @State()
-  status?: 'together' | 'divorced' | 'patched' | 'single';
+  status?: 'TOGETHER' | 'DIVORCED' | 'PATCHED' | 'SINGLE';
 
   get disabled(): boolean {
     return this.status === undefined;
@@ -24,17 +24,17 @@ export class FamilyStatus implements ComponentInterface {
             <ion-grid>
               <ion-row>
                 <ion-col>
-                  <mapa-family-state status="together"
-                                     active={ this.status === 'together' }
-                                     onClick={ () => this.status = 'together' }
+                  <mapa-family-state status="TOGETHER"
+                                     active={ this.status === 'TOGETHER' }
+                                     onClick={ () => this.status = 'TOGETHER' }
                   >
                     Zusammen
                   </mapa-family-state>
                 </ion-col>
                 <ion-col>
-                  <mapa-family-state status="divorced"
-                                     active={ this.status === 'divorced' }
-                                     onClick={ () => this.status = 'divorced' }
+                  <mapa-family-state status="DIVORCED"
+                                     active={ this.status === 'DIVORCED' }
+                                     onClick={ () => this.status = 'DIVORCED' }
                   >
                     Getrennt
                   </mapa-family-state>
@@ -42,17 +42,17 @@ export class FamilyStatus implements ComponentInterface {
               </ion-row>
               <ion-row>
                 <ion-col>
-                  <mapa-family-state status="patched"
-                                     active={ this.status === 'patched' }
-                                     onClick={ () => this.status = 'patched' }
+                  <mapa-family-state status="PATCHED"
+                                     active={ this.status === 'PATCHED' }
+                                     onClick={ () => this.status = 'PATCHED' }
                   >
                     Patchwork
                   </mapa-family-state>
                 </ion-col>
                 <ion-col>
-                  <mapa-family-state status="single"
-                                     active={ this.status === 'single' }
-                                     onClick={ () => this.status = 'single' }
+                  <mapa-family-state status="SINGLE"
+                                     active={ this.status === 'SINGLE' }
+                                     onClick={ () => this.status = 'SINGLE' }
                   >
                     Allein
                   </mapa-family-state>
