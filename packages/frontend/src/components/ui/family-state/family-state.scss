@@ -1,0 +1,34 @@
+@import '../../../styles/utils';
+
+:host {
+  border: 3px solid var(--color-orange);
+  border-radius: 10%;
+
+  box-sizing: border-box;
+  display: block;
+  padding-top: 100%;
+  position: relative;
+}
+
+:host(:not(.active)) {
+  background: var(--color-orange);
+  color: var(--color-white);
+}
+
+:host(.active) {
+  background: var(--color-white);
+  color: var(--color-orange);
+}
+
+.icon {
+  --icon-height: 100%;
+  --icon-width: auto;
+
+  @include position(absolute, var(--base-size) var(--base-size) calc(var(--base-size) + var(--font-size-base) * 2.7));
+}
+
+.label {
+  @include position(absolute, auto var(--base-size) var(--base-size));
+  font-size: calc(var(--font-size-base) * 1.7);
+  line-height: 1.5;
+}

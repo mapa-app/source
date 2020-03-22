@@ -1,9 +1,9 @@
-import { Component, h } from '@stencil/core';
+import { Component, ComponentInterface, h } from '@stencil/core';
 
 @Component({
   tag: 'mapa-documents'
 })
-export class Documents {
+export class Documents implements ComponentInterface {
 
   render() {
     return (

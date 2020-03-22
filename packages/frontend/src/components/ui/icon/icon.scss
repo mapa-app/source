@@ -4,7 +4,12 @@
   color: var(--icon-color, currentColor);
   display: block;
   padding: var(--icon-spacing, 0);
-  height: auto;
-  width: var(--icon-size, var(--base-size));
+  height: var(--icon-height, auto);
+  width: var(--icon-width, 100%);
   font-size: 0;
+}
+
+::slotted(svg) {
+  height: 100%;
+  width: 100%;
 }

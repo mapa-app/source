@@ -1,13 +1,12 @@
 import { Component, ComponentInterface, h, State } from '@stencil/core';
-import { Role } from '@mapa/backend';
 
-import { register } from '../../queries/register.query';
+import { login } from '../../queries/login.query';
 import { openURL } from '../../utils/router.utils';
 
 @Component({
-  tag: 'mapa-profile-create'
+  tag: 'mapa-login'
 })
-export class ProfileCreate implements ComponentInterface {
+export class Login implements ComponentInterface {
 
   @State()
   hasError = false;
@@ -17,12 +16,6 @@ export class ProfileCreate implements ComponentInterface {
 
   @State()
   password = '';
-
-  @State()
-  role: Exclude<Role['type'], 'child'> = 'mum';
-
-  @State()
-  color = '';
 
   get disabled(): boolean {
     return this.username == '' || this.password == '';
@@ -39,17 +32,17 @@ export class ProfileCreate implements ComponentInterface {
   async handleSubmit(event: Event) {
     event.preventDefault();
 
-    this.hasError = !await register(this.username, this.password, this.role, this.color);
+    this.hasError = !await login(this.username, this.password);
     if (!this.hasError) {
-      await openURL('/family/status', event, 'forward');
+      await openURL('/dashboard', event, 'forward');
     }
   }
 
   render() {
     return (
       <ion-content class="ion-padding ion-text-center">
-        <mapa-header headline="Erstelle dein Profil">
-          <mapa-icon-idea style={ { color: 'var(--color-orange)' } }/>
+        <mapa-header headline="Log in">
+          <mapa-icon-logo/>
         </mapa-header>
 
         <mapa-main>
@@ -82,14 +75,12 @@ export class ProfileCreate implements ComponentInterface {
               />
             </ion-item>
 
-            <mapa-gender-select onGendered={ ({ detail }) => this.role = detail === 'male' ? 'dad' : 'mum' }/>
-
             <ion-button type="submit"
                         color="primary"
                         expand="block"
                         disabled={ this.hasError || this.disabled }
             >
-              Anlegen
+              Log in
             </ion-button>
           </form>
         </mapa-main>

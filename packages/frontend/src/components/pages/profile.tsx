@@ -1,9 +1,9 @@
-import { Component, h, Prop, State } from '@stencil/core';
+import { Component, ComponentInterface, h, Prop, State } from '@stencil/core';
 
 @Component({
   tag: 'mapa-profile'
 })
-export class Profile {
+export class Profile implements ComponentInterface {
 
   @State() state = false;
 

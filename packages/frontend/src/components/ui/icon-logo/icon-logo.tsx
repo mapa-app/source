@@ -8,7 +8,7 @@ export class IconLogo implements ComponentInterface {
 
   render() {
     return (
-      <tl-icon>
+      <mapa-icon>
         <svg version="1.1"
              xmlns="http://www.w3.org/2000/svg"
              viewBox="0 0 140 105"
@@ -23,7 +23,7 @@ export class IconLogo implements ComponentInterface {
                 fill="var(--color-blue-light)"
           />
         </svg>
-      </tl-icon>
+      </mapa-icon>
     );
   }
 

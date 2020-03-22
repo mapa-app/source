@@ -1,0 +1,16 @@
+@import '../../../styles/utils';
+
+:host {
+  display: flex;
+  flex-direction: row;
+  padding: calc(var(--base-size) * 2) 0;
+}
+
+.gender {
+  --icon-height: calc(var(--base-size) * 2);
+  color: var(--color-orange);
+
+  &.active {
+    color: var(--color-blue-light);
+  }
+}

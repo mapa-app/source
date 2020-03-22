@@ -1,9 +1,9 @@
-import { Component, h } from '@stencil/core';
+import { Component, ComponentInterface, h } from '@stencil/core';
 
 @Component({
   tag: 'mapa-router'
 })
-export class Router {
+export class Router implements ComponentInterface {
 
   render() {
     return (
@@ -12,6 +12,9 @@ export class Router {
                             to="/welcome"
         />
 
+        <ion-route url="/login"
+                   component="mapa-login"
+        />
         <ion-route url="/profile/create"
                    component="mapa-profile-create"
         />
@@ -21,7 +24,7 @@ export class Router {
         <ion-route url="/family/status"
                    component="mapa-family-status"
         />
-        <ion-route url="/kid/create"
+        <ion-route url="/kids/create"
                    component="mapa-kids-create"
         />
 
