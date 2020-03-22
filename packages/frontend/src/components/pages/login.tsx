@@ -7,6 +7,9 @@ import { login } from '../../queries/login.query';
 export class Login implements ComponentInterface {
 
   @State()
+  hasError = false;
+
+  @State()
   username = '';
 
   @State()
@@ -20,6 +23,7 @@ export class Login implements ComponentInterface {
     const { name, value } = event.target as HTMLInputElement;
     if (name in this) {
       this[name] = value;
+      this.hasError = false;
     }
   }
 
@@ -29,7 +33,11 @@ export class Login implements ComponentInterface {
   }
 
   async login() {
-    await login(this.username, this.password);
+    this.hasError = !await login(this.username, this.password);
+    if (!this.hasError) {
+      console.log('Navigate')
+      history.pushState(null, null, '/profile/create');
+    }
   }
 
   render() {
@@ -40,23 +48,31 @@ export class Login implements ComponentInterface {
         </mapa-header>
 
         <mapa-main>
-          <pre>{ this.username }</pre>
-          <pre>{ this.password }</pre>
           <form onSubmit={ event => this.handleSubmit(event) }>
             <ion-item>
-              <ion-label position="floating">Username</ion-label>
+              <ion-label position="floating"
+                         color={ this.hasError && 'danger' }
+              >
+                Username
+              </ion-label>
               <ion-input type="text"
                          name="username"
                          value={ this.username }
+                         color={ this.hasError && 'danger' }
                          onInput={ event => this.handleChange(event) }
               />
             </ion-item>
 
             <ion-item>
-              <ion-label position="floating">Password</ion-label>
+              <ion-label position="floating"
+                         color={ this.hasError && 'danger' }
+              >
+                Password
+              </ion-label>
               <ion-input type="password"
                          name="password"
                          value={ this.password }
+                         color={ this.hasError && 'danger' }
                          onInput={ event => this.handleChange(event) }
               />
             </ion-item>
@@ -64,7 +80,7 @@ export class Login implements ComponentInterface {
             <ion-button type="submit"
                         color="primary"
                         expand="block"
-                        disabled={ this.disabled }
+                        disabled={ this.hasError || this.disabled }
             >
               Login
             </ion-button>
