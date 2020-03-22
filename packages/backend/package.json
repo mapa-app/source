@@ -11,7 +11,7 @@
     "prebuild": "tsc --project tsconfig.types.json",
     "prestart": "tsc --project tsconfig.types.json",
     "build": "tsc --project .",
-    "start": "node ./dist/apollo-graphql.js"
+    "start": "ts-node-dev ./src/apollo-graphql.ts"
   },
 	"dependencies": {
 		"apollo-server": "2.11.0",
