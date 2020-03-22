@@ -8,6 +8,10 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface MapaCalendar {
     }
+    interface MapaColorPicker {
+        "colors": string[];
+        "selected"?: string;
+    }
     interface MapaDashboard {
     }
     interface MapaDiary {
@@ -40,6 +44,8 @@ export namespace Components {
     }
     interface MapaIconIdea {
     }
+    interface MapaIconKite {
+    }
     interface MapaIconLogo {
     }
     interface MapaKidsCreate {
@@ -68,6 +74,12 @@ declare global {
     var HTMLMapaCalendarElement: {
         prototype: HTMLMapaCalendarElement;
         new (): HTMLMapaCalendarElement;
+    };
+    interface HTMLMapaColorPickerElement extends Components.MapaColorPicker, HTMLStencilElement {
+    }
+    var HTMLMapaColorPickerElement: {
+        prototype: HTMLMapaColorPickerElement;
+        new (): HTMLMapaColorPickerElement;
     };
     interface HTMLMapaDashboardElement extends Components.MapaDashboard, HTMLStencilElement {
     }
@@ -147,6 +159,12 @@ declare global {
         prototype: HTMLMapaIconIdeaElement;
         new (): HTMLMapaIconIdeaElement;
     };
+    interface HTMLMapaIconKiteElement extends Components.MapaIconKite, HTMLStencilElement {
+    }
+    var HTMLMapaIconKiteElement: {
+        prototype: HTMLMapaIconKiteElement;
+        new (): HTMLMapaIconKiteElement;
+    };
     interface HTMLMapaIconLogoElement extends Components.MapaIconLogo, HTMLStencilElement {
     }
     var HTMLMapaIconLogoElement: {
@@ -209,6 +227,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "mapa-calendar": HTMLMapaCalendarElement;
+        "mapa-color-picker": HTMLMapaColorPickerElement;
         "mapa-dashboard": HTMLMapaDashboardElement;
         "mapa-diary": HTMLMapaDiaryElement;
         "mapa-documents": HTMLMapaDocumentsElement;
@@ -222,6 +241,7 @@ declare global {
         "mapa-icon-gender": HTMLMapaIconGenderElement;
         "mapa-icon-home": HTMLMapaIconHomeElement;
         "mapa-icon-idea": HTMLMapaIconIdeaElement;
+        "mapa-icon-kite": HTMLMapaIconKiteElement;
         "mapa-icon-logo": HTMLMapaIconLogoElement;
         "mapa-kids-create": HTMLMapaKidsCreateElement;
         "mapa-login": HTMLMapaLoginElement;
@@ -236,6 +256,11 @@ declare global {
 }
 declare namespace LocalJSX {
     interface MapaCalendar {
+    }
+    interface MapaColorPicker {
+        "colors"?: string[];
+        "onColored"?: (event: CustomEvent<string>) => void;
+        "selected"?: string;
     }
     interface MapaDashboard {
     }
@@ -270,6 +295,8 @@ declare namespace LocalJSX {
     }
     interface MapaIconIdea {
     }
+    interface MapaIconKite {
+    }
     interface MapaIconLogo {
     }
     interface MapaKidsCreate {
@@ -293,6 +320,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "mapa-calendar": MapaCalendar;
+        "mapa-color-picker": MapaColorPicker;
         "mapa-dashboard": MapaDashboard;
         "mapa-diary": MapaDiary;
         "mapa-documents": MapaDocuments;
@@ -306,6 +334,7 @@ declare namespace LocalJSX {
         "mapa-icon-gender": MapaIconGender;
         "mapa-icon-home": MapaIconHome;
         "mapa-icon-idea": MapaIconIdea;
+        "mapa-icon-kite": MapaIconKite;
         "mapa-icon-logo": MapaIconLogo;
         "mapa-kids-create": MapaKidsCreate;
         "mapa-login": MapaLogin;
@@ -323,6 +352,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "mapa-calendar": LocalJSX.MapaCalendar & JSXBase.HTMLAttributes<HTMLMapaCalendarElement>;
+            "mapa-color-picker": LocalJSX.MapaColorPicker & JSXBase.HTMLAttributes<HTMLMapaColorPickerElement>;
             "mapa-dashboard": LocalJSX.MapaDashboard & JSXBase.HTMLAttributes<HTMLMapaDashboardElement>;
             "mapa-diary": LocalJSX.MapaDiary & JSXBase.HTMLAttributes<HTMLMapaDiaryElement>;
             "mapa-documents": LocalJSX.MapaDocuments & JSXBase.HTMLAttributes<HTMLMapaDocumentsElement>;
@@ -336,6 +366,7 @@ declare module "@stencil/core" {
             "mapa-icon-gender": LocalJSX.MapaIconGender & JSXBase.HTMLAttributes<HTMLMapaIconGenderElement>;
             "mapa-icon-home": LocalJSX.MapaIconHome & JSXBase.HTMLAttributes<HTMLMapaIconHomeElement>;
             "mapa-icon-idea": LocalJSX.MapaIconIdea & JSXBase.HTMLAttributes<HTMLMapaIconIdeaElement>;
+            "mapa-icon-kite": LocalJSX.MapaIconKite & JSXBase.HTMLAttributes<HTMLMapaIconKiteElement>;
             "mapa-icon-logo": LocalJSX.MapaIconLogo & JSXBase.HTMLAttributes<HTMLMapaIconLogoElement>;
             "mapa-kids-create": LocalJSX.MapaKidsCreate & JSXBase.HTMLAttributes<HTMLMapaKidsCreateElement>;
             "mapa-login": LocalJSX.MapaLogin & JSXBase.HTMLAttributes<HTMLMapaLoginElement>;

@@ -18,7 +18,8 @@ export class Login implements ComponentInterface {
   password = '';
 
   get disabled(): boolean {
-    return this.username == '' || this.password == '';
+    return this.username === ''
+      || this.password === '';
   }
 
   async handleChange(event: Event) {

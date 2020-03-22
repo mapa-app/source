@@ -1,0 +1,42 @@
+@import '../../../styles/utils';
+
+:host {
+  display: grid;
+  grid-gap: calc(var(--base-size) * 1.5);
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: center;
+  padding: calc(var(--base-size) * 1.5) 0;
+}
+
+.color {
+  display: block;
+  height: calc(var(--base-size) * 1.65);
+  width: calc(var(--base-size) * 1.65);
+  position: relative;
+
+  border-radius: 50%;
+  cursor: pointer;
+
+  &:before,
+  &:after {
+    content: '';
+    border-radius: 50%;
+  }
+
+  &:before {
+    @include position(absolute, 0);
+    @include transition(opacity);
+    border: calc(var(--base-size) * .1) solid var(--color-code);
+    border-radius: 50%;
+    opacity: 0;
+  }
+
+  &:after {
+    @include position(absolute, calc(var(--base-size) * .2));
+    background: var(--color-code);
+  }
+
+  &.active:before {
+    opacity: .5;
+  }
+}

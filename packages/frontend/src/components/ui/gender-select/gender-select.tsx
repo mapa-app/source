@@ -25,11 +25,19 @@ export class GenderSelect implements ComponentInterface {
   render() {
     return [
       <mapa-icon-gender gender="female"
-                        class={ { gender: true, active: this.selected === 'female' } }
+                        class={ {
+                          gender: true,
+                          female: true,
+                          active: this.selected === 'female'
+                        } }
                         onClick={ () => this.handleChange('female') }
       />,
       <mapa-icon-gender gender="male"
-                        class={ { gender: true, active: this.selected === 'male' } }
+                        class={ {
+                          gender: true,
+                          male: true,
+                          active: this.selected === 'male'
+                        } }
                         onClick={ () => this.handleChange('male') }
       />
     ];
