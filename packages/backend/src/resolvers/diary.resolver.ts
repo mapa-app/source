@@ -3,6 +3,7 @@ import { familyModel, Family } from '../models/family.model';
 import { diaryModel } from '../models/diary.model';
 import { instanceOfChild } from '../models/child.model';
 import { resolveUser } from './user.resolver';
+
 export const diaryResolver = {
   Query: {
     diary: async (p, { userID }, context, info) => {

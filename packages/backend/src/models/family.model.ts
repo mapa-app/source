@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
-import {parentModel,Parent} from './parent.model'
-import {childModel,Child} from './child.model'
+
 export interface Family extends mongoose.Document {
   name: String;
   children:[String];

@@ -1,6 +1,4 @@
-import bcrypt from 'bcrypt';
 import mongoose from 'mongoose';
-import {familyModel} from './family.model'
 
 export interface Parent extends mongoose.Document {
     name: String;

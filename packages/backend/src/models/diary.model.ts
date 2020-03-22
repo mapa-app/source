@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-
 import {familyModel, Family} from './family.model'
 import {diaryEntryModel, DiaryEntry} from './diaryentry.model'
 
