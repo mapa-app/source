@@ -47,7 +47,7 @@ export const schema = gql`
   }
 
   extend type Mutation {
-    createUser(name: String!, password: String!,role:RoleInput!): User!
+    createUser(name: String!, password: String!, role:RoleInput!): User!
     addDiaryEntry(id:ID!,entry:DiaryEntryInput!): Boolean!
   }
 `;

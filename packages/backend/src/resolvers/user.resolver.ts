@@ -9,6 +9,9 @@ import { duplicateArgMessage } from 'graphql/validation/rules/UniqueArgumentName
 
 export const userResolver = {
   Query: {
+    login:  async (parent, { name, password }, context, info) => {
+      return  await userModel.exists({ name, password });
+    },
     user: async (parent, { id }, context, info) => {
       const user = await userModel.findById({ _id: id }).exec();
       return user;
