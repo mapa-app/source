@@ -1,14 +1,19 @@
-import { User } from '@mapa/backend';
+import { Parent } from '@mapa/backend';
 import { query } from '../utils/query.utils';
 
-export async function login(name: User['name'], pass: User['password']): Promise<boolean> {
+export async function login(name: Parent['name'], pass: Parent['password']): Promise<Parent | false> {
   try {
-    const { login } = await query(`
+    const result = await query(`
       query {
-        login(name: "${ name }", password: "${ pass }")
+        login(name: "${ name }", password: "${ pass }") {
+          id
+          name
+          color
+        }
       }
     `);
-    return Promise.resolve(login);
+    console.log(result);
+    return Promise.resolve(result as Parent);
   } catch (error) {
     return Promise.resolve(false);
   }

@@ -1,7 +1,7 @@
 import { Component, ComponentInterface, h, Prop, State } from '@stencil/core';
 
 @Component({
-  tag: 'mapa-profile'
+  tag: 'mapa-page-profile'
 })
 export class Profile implements ComponentInterface {
 

@@ -1,11 +1,10 @@
-import { Component, ComponentInterface, h, State } from '@stencil/core';
-import { Role } from '@mapa/backend';
+import { Component, ComponentInterface, h, Listen, State } from '@stencil/core';
 
 import { register } from '../../queries/register.query';
 import { openURL } from '../../utils/router.utils';
 
 @Component({
-  tag: 'mapa-profile-create'
+  tag: 'mapa-page-profile-create'
 })
 export class ProfileCreate implements ComponentInterface {
 
@@ -19,13 +18,12 @@ export class ProfileCreate implements ComponentInterface {
   password = '';
 
   @State()
-  role: Exclude<Role['type'], 'child'> = 'mum';
-
-  @State()
   color = '';
 
   get disabled(): boolean {
-    return this.username == '' || this.password == '';
+    return this.username === ''
+      || this.password === ''
+      || this.color === '';
   }
 
   async handleChange(event: Event) {
@@ -39,9 +37,16 @@ export class ProfileCreate implements ComponentInterface {
   async handleSubmit(event: Event) {
     event.preventDefault();
 
-    this.hasError = !await register(this.username, this.password, this.role, this.color);
+    this.hasError = !await register(this.username, this.password, this.color);
     if (!this.hasError) {
       await openURL('/family/status', event, 'forward');
+    }
+  }
+
+  @Listen('keydown')
+  async handleEnter(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
+      await this.handleSubmit(event);
     }
   }
 
@@ -82,7 +87,7 @@ export class ProfileCreate implements ComponentInterface {
               />
             </ion-item>
 
-            <mapa-gender-select onGendered={ ({ detail }) => this.role = detail === 'male' ? 'dad' : 'mum' }/>
+            <mapa-color-picker onColored={ ({ detail }) => this.color = detail }/>
 
             <ion-button type="submit"
                         color="primary"

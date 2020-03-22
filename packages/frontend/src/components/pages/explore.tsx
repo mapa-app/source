@@ -1,7 +1,7 @@
 import { Component, ComponentInterface, h } from '@stencil/core';
 
 @Component({
-  tag: 'mapa-explore'
+  tag: 'mapa-page-explore'
 })
 export class Explore implements ComponentInterface {
 

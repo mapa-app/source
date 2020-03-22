@@ -1,7 +1,7 @@
 import { Component, ComponentInterface, h, State } from '@stencil/core';
 
 @Component({
-  tag: 'mapa-family-status'
+  tag: 'mapa-page-family-status'
 })
 export class FamilyStatus implements ComponentInterface {
 

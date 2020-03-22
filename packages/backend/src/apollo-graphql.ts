@@ -6,6 +6,11 @@ import { connect } from 'mongoose';
 import { linkSchema } from './schemas/';
 import { schema } from './schemas/schema';
 import { userResolver } from './resolvers/user.resolver';
+import { parentResolver } from './resolvers/parent.resolver';
+import { childResolver } from './resolvers/child.resolver';
+import { diaryResolver } from './resolvers/diary.resolver';
+import { diaryEntryResolver } from './resolvers/diaryEntry.resolver';
+import { familyResolver } from './resolvers/family.resolver';
 
 const app = express();
 app.use(cors());
@@ -17,7 +22,12 @@ const server = new ApolloServer({
     schema
   ],
   resolvers: [
-    userResolver
+    userResolver,
+    diaryEntryResolver,
+    diaryResolver,
+    familyResolver,
+    childResolver,
+    parentResolver
   ]
 });
 

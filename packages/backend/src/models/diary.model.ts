@@ -1,16 +1,15 @@
 import mongoose from 'mongoose';
-
-import {userModel} from './user.model'
-import {diaryEntryModel} from './diaryentry.model'
+import {familyModel, Family} from './family.model'
+import {diaryEntryModel, DiaryEntry} from './diaryentry.model'
 
 export interface Diary extends mongoose.Document {
-  user: any;
-  diaryEntries: any;
+  family: Family;
+  diaryEntries: [DiaryEntry];
 }
 
 const diarySchema = new mongoose.Schema({
-  user: {
-    type: userModel.schema,
+  family: {
+    type: familyModel.schema,
     required: true
   },
   diaryEntries:{

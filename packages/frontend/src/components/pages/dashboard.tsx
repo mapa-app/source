@@ -1,7 +1,7 @@
 import { Component, ComponentInterface, h } from '@stencil/core';
 
 @Component({
-  tag: 'mapa-dashboard'
+  tag: 'mapa-page-dashboard'
 })
 export class Dashboard implements ComponentInterface {
 

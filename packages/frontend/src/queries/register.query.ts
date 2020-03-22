@@ -1,16 +1,16 @@
-import { User } from '@mapa/backend';
+import { Parent } from '@mapa/backend';
 import { query } from '../utils/query.utils';
 
-export async function register(name: User['name'], pass: User['password'], role: User['role']['type'], _color?: string): Promise<boolean> {
+export async function register(name: Parent['name'], pass: Parent['password'], color: string): Promise<Parent | false> {
   try {
-    await query(`
+    const response = await query<Parent | false>(`
       mutation {
-        createUser(name: "${ name }", password: "${ pass }", role: { type: "${ role }" }) {
-          id
+        createParent(name: "${ name }", password: "${ pass }", color: "${ color }") {
+          id, name, color
         }
       }
     `);
-    return Promise.resolve(true);
+    return Promise.resolve(response);
   } catch (error) {
     return Promise.resolve(false);
   }
