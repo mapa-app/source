@@ -1,6 +1,5 @@
 @mixin useGradient() {
   &.use-gradient {
-    background: linear-gradient(155.58deg, #FFDF80 31.33%, #FFFBDA 100%), #FFFFFF;
-    //background: linear-gradient(180deg, var(--color-orange) 0%, var(--color-white) 100%);
+    --ion-background-color: linear-gradient(155.58deg, var(--color-orange) 31.33%, var(--color-orange-light) 100%), var(--color-white);
   }
 }
