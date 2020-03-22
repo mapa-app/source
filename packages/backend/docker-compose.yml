@@ -1,0 +1,24 @@
+version: "2"
+services:
+  app:
+    container_name: app
+    restart: always
+    build: .
+    ports:
+      - "4000:4000"
+    links:
+      - mongo
+  mongo:
+    image: mongo
+    container_name: mongo
+    environment:
+      - MONGO_INITDB_DATABASE=mapa
+      - MONGO_INITDB_ROOT_USERNAME=mapa
+      - MONGO_INITDB_ROOT_PASSWORD=i9-Af4xeq57C#34
+    volumes:
+      - mongo:/data/db
+    ports:
+      - "27017-27019:27017-27019"
+
+volumes:
+  mongo:
