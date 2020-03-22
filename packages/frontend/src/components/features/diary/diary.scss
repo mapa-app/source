@@ -1,0 +1,21 @@
+@import '../../../styles/utils';
+
+:host {
+  --diary-offset: calc(var(--base-size) * 2);
+
+  display: block;
+  flex: 1 0 auto;
+  position: relative;
+}
+
+::slotted(mapa-diary-entry) {
+  --diary-entry-offset: calc((var(--base-size) + 5.4rem) * var(--diary-entry-index));
+
+  @include transition(transform);
+  @include position(absolute, calc(var(--diary-offset) + var(--diary-entry-offset)) 0 0);
+  transform: translateY(0);
+}
+
+::slotted(mapa-diary-entry:not(:last-child):hover) {
+  transform: translateY(calc(var(--base-size) * -2));
+}

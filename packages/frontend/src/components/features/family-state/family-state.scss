@@ -29,6 +29,6 @@
 
 .label {
   @include position(absolute, auto var(--base-size) var(--base-size));
-  font-size: calc(var(--font-size-base) * 1.7);
+  font-size: 1.7rem;
   line-height: 1.5;
 }

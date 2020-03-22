@@ -1,9 +1,9 @@
-import { Component, ComponentInterface, h, State } from '@stencil/core';
+import { Component, ComponentInterface, h, Listen, State } from '@stencil/core';
 // import { register } from '../../queries/register.query';
 // import { openURL } from '../../utils/router.utils';
 
 @Component({
-  tag: 'mapa-kids-create'
+  tag: 'mapa-page-kids-create'
 })
 export class KidsCreate implements ComponentInterface {
 
@@ -42,6 +42,13 @@ export class KidsCreate implements ComponentInterface {
     // }
   }
 
+  @Listen('keydown')
+  async handleEnter(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
+      await this.handleSubmit(event);
+    }
+  }
+
   render() {
     return (
       <ion-content class="ion-padding ion-text-center">
@@ -71,11 +78,10 @@ export class KidsCreate implements ComponentInterface {
               >
                 Geburtstag
               </ion-label>
-              <ion-input type="date"
-                         name="birthday"
-                         value={ this.birthday }
-                         color={ this.hasError && 'danger' }
-                         onInput={ event => this.handleChange(event) }
+              <ion-datetime value="1990-02-19"
+                            name="birthday"
+                            color={ this.hasError && 'danger' }
+                            onChange={ event => this.handleChange(event) }
               />
             </ion-item>
 

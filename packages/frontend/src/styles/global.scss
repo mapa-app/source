@@ -62,6 +62,15 @@
   --ion-color-tertiary-tint: #{lighten($color-orange, 10%)};
 }
 
+html {
+  font-size: var(--font-size-base);
+}
+
+body {
+  font-size: 1.3rem;
+  line-height: 2.1rem;
+}
+
 ion-content {
   @include useGradient();
 }

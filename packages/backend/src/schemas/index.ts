@@ -1,4 +1,4 @@
-import { gql } from 'apollo-server-lambda';
+import { gql } from 'apollo-server';
 
 export const linkSchema = gql`
   type Query {
