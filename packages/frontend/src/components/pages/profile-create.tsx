@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, h, State } from '@stencil/core';
+import { Component, ComponentInterface, h, Listen, State } from '@stencil/core';
 
 import { register } from '../../queries/register.query';
 import { openURL } from '../../utils/router.utils';
@@ -40,6 +40,13 @@ export class ProfileCreate implements ComponentInterface {
     this.hasError = !await register(this.username, this.password, this.color);
     if (!this.hasError) {
       await openURL('/family/status', event, 'forward');
+    }
+  }
+
+  @Listen('keydown')
+  async handleEnter(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
+      await this.handleSubmit(event);
     }
   }
 
