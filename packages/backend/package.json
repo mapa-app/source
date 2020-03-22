@@ -4,8 +4,8 @@
 	"main": "dist/index.js",
 	"license": "MIT",
   "scripts": {
-    "build": "netlify-lambda build src/functions --config webpack.functions.js",
-    "start": "netlify-lambda serve src/functions --config webpack.functions.js"
+    "build": "netlify-lambda build src/functions",
+    "start": "netlify-lambda serve src/functions"
   },
 	"dependencies": {
 		"apollo-server": "2.11.0",
