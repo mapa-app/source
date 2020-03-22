@@ -82,22 +82,7 @@ export class ProfileCreate implements ComponentInterface {
               />
             </ion-item>
 
-            <ion-grid>
-              <ion-row>
-                <ion-col>
-                  <mapa-icon-gender gender="female"
-                                    style={ { color: `var(--color-${ this.role === 'mum' ? 'blue-light' : 'orange' })` } }
-                                    onClick={ () => this.role = 'mum' }
-                  />
-                </ion-col>
-                <ion-col>
-                  <mapa-icon-gender gender="male"
-                                    style={ { color: `var(--color-${ this.role === 'dad' ? 'blue-light' : 'orange' })` } }
-                                    onClick={ () => this.role = 'dad' }
-                  />
-                </ion-col>
-              </ion-row>
-            </ion-grid>
+            <mapa-gender-select onGendered={ ({ detail }) => this.role = detail === 'male' ? 'dad' : 'mum' }/>
 
             <ion-button type="submit"
                         color="primary"

@@ -22,6 +22,9 @@ export namespace Components {
     }
     interface MapaFamilyStatus {
     }
+    interface MapaGenderSelect {
+        "selected"?: "female" | "male";
+    }
     interface MapaHeader {
         "headline"?: string;
     }
@@ -101,6 +104,12 @@ declare global {
     var HTMLMapaFamilyStatusElement: {
         prototype: HTMLMapaFamilyStatusElement;
         new (): HTMLMapaFamilyStatusElement;
+    };
+    interface HTMLMapaGenderSelectElement extends Components.MapaGenderSelect, HTMLStencilElement {
+    }
+    var HTMLMapaGenderSelectElement: {
+        prototype: HTMLMapaGenderSelectElement;
+        new (): HTMLMapaGenderSelectElement;
     };
     interface HTMLMapaHeaderElement extends Components.MapaHeader, HTMLStencilElement {
     }
@@ -206,6 +215,7 @@ declare global {
         "mapa-explore": HTMLMapaExploreElement;
         "mapa-family-state": HTMLMapaFamilyStateElement;
         "mapa-family-status": HTMLMapaFamilyStatusElement;
+        "mapa-gender-select": HTMLMapaGenderSelectElement;
         "mapa-header": HTMLMapaHeaderElement;
         "mapa-icon": HTMLMapaIconElement;
         "mapa-icon-family": HTMLMapaIconFamilyElement;
@@ -240,6 +250,10 @@ declare namespace LocalJSX {
         "status"?: "together" | "divorced" | "patched" | "single";
     }
     interface MapaFamilyStatus {
+    }
+    interface MapaGenderSelect {
+        "onGendered"?: (event: CustomEvent<"female" | "male">) => void;
+        "selected"?: "female" | "male";
     }
     interface MapaHeader {
         "headline"?: string;
@@ -285,6 +299,7 @@ declare namespace LocalJSX {
         "mapa-explore": MapaExplore;
         "mapa-family-state": MapaFamilyState;
         "mapa-family-status": MapaFamilyStatus;
+        "mapa-gender-select": MapaGenderSelect;
         "mapa-header": MapaHeader;
         "mapa-icon": MapaIcon;
         "mapa-icon-family": MapaIconFamily;
@@ -314,6 +329,7 @@ declare module "@stencil/core" {
             "mapa-explore": LocalJSX.MapaExplore & JSXBase.HTMLAttributes<HTMLMapaExploreElement>;
             "mapa-family-state": LocalJSX.MapaFamilyState & JSXBase.HTMLAttributes<HTMLMapaFamilyStateElement>;
             "mapa-family-status": LocalJSX.MapaFamilyStatus & JSXBase.HTMLAttributes<HTMLMapaFamilyStatusElement>;
+            "mapa-gender-select": LocalJSX.MapaGenderSelect & JSXBase.HTMLAttributes<HTMLMapaGenderSelectElement>;
             "mapa-header": LocalJSX.MapaHeader & JSXBase.HTMLAttributes<HTMLMapaHeaderElement>;
             "mapa-icon": LocalJSX.MapaIcon & JSXBase.HTMLAttributes<HTMLMapaIconElement>;
             "mapa-icon-family": LocalJSX.MapaIconFamily & JSXBase.HTMLAttributes<HTMLMapaIconFamilyElement>;
