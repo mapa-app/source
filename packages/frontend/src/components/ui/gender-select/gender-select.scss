@@ -1,0 +1,23 @@
+@import '../../../styles/utils';
+
+:host {
+  display: flex;
+  flex-direction: row;
+  padding: calc(var(--base-size) * 2) 0;
+}
+
+.gender {
+  color: var(--color-orange);
+
+  &.active {
+    color: var(--color-blue-light);
+  }
+
+  &.female {
+    --icon-height: calc(var(--base-size) * 2);
+  }
+
+  &.male {
+    --icon-height: calc(var(--base-size) * 1.5);
+  }
+}

@@ -26,6 +26,7 @@
   --color-grey-20: #{$color-grey-20};
   --color-black: #{$color-black};
 
+  --color-orange-light: #{$color-orange-light};
   --color-orange: #{$color-orange};
   --color-blue-light: #{$color-blue-light};
   --color-blue: #{$color-blue};
@@ -37,7 +38,38 @@
 
   --base-size: 20px;
 
-
-  --ion-background-color: linear-gradient(180deg, var(--color-orange) 0%, var(--color-white) 100%);
   --ion-font-family: var(--font-face-default);
+
+  --ion-color-primary: #{$color-blue-light};
+  --ion-color-primary-rgb: #{to-rgb($color-blue-light)};
+  --ion-color-primary-contrast: #{$color-white};
+  --ion-color-primary-contrast-rgb: #{to-rgb($color-white)};
+  --ion-color-primary-shade: #{darken($color-blue-light, 10%)};
+  --ion-color-primary-tint: #{lighten($color-blue-light, 10%)};
+
+  --ion-color-secondary: #{$color-blue};
+  --ion-color-secondary-rgb: #{to-rgb($color-blue)};
+  --ion-color-secondary-contrast: #{$color-white};
+  --ion-color-secondary-contrast-rgb: #{to-rgb($color-white)};
+  --ion-color-secondary-shade: #{darken($color-blue, 10%)};
+  --ion-color-secondary-tint: #{lighten($color-blue, 10%)};
+
+  --ion-color-tertiary: #{$color-orange};
+  --ion-color-tertiary-rgb: #{to-rgb($color-orange)};
+  --ion-color-tertiary-contrast: #{$color-blue-dark};
+  --ion-color-tertiary-contrast-rgb: #{to-rgb($color-blue-dark)};
+  --ion-color-tertiary-shade: #{darken($color-orange, 10%)};
+  --ion-color-tertiary-tint: #{lighten($color-orange, 10%)};
+}
+
+ion-content {
+  @include useGradient();
+}
+
+ion-button {
+  --border-radius: 2.8em;
+}
+
+.item-native {
+  padding-inline-start: 0;
 }

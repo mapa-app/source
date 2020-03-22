@@ -1,9 +1,9 @@
-import { Component, h } from '@stencil/core';
+import { Component, ComponentInterface, h } from '@stencil/core';
 
 @Component({
   tag: 'mapa-diary'
 })
-export class Diary {
+export class Diary implements ComponentInterface {
 
   render() {
     return (
@@ -12,13 +12,15 @@ export class Diary {
           <mapa-icon-logo/>
         </mapa-header>
 
-        <ion-button href="/explore"
-                    color="primary"
-                    expand="block"
-                    routerDirection="back"
-        >
-          Explore MaPa
-        </ion-button>
+        <mapa-main>
+          <ion-button href="/explore"
+                      color="primary"
+                      expand="block"
+                      routerDirection="back"
+          >
+            Explore MaPa
+          </ion-button>
+        </mapa-main>
       </ion-content>
     );
   }

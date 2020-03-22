@@ -1,4 +1,4 @@
-import { gql } from 'apollo-server';
+import { gql } from 'apollo-server-lambda';
 
 export const schema = gql`
   type Child {
@@ -37,7 +37,7 @@ export const schema = gql`
     children:[String!]
   }
 
- 
+
 
   type Family{
     name:String!
@@ -46,14 +46,18 @@ export const schema = gql`
     children:[Child!]
   }
 
+
   type User{
     id:String!
     name:String!
     color:String!
+
+
   }
 
 
   extend type Query {
+
     login(name: String!, password: String!): User!
     diary(id:ID!):Diary!
     family(name:String!):Family!

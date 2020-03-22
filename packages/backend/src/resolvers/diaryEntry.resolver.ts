@@ -3,7 +3,6 @@ import { familyModel,Family } from '../models/family.model';
 import { diaryModel,Diary } from '../models/diary.model';
 import { resolveUser } from './user.resolver';
 import { diaryEntryModel,DiaryEntry } from '../models/diaryentry.model';
-import { Parent } from 'src/models/parent.model';
 export const diaryEntryResolver = {
     Mutation: {
         addDiaryEntry: async (parent, { id, entry }, context, info) => {

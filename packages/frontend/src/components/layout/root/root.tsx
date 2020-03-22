@@ -1,13 +1,14 @@
-import { Component, h } from '@stencil/core';
+import { Component, ComponentInterface, h } from '@stencil/core';
 
 @Component({
   tag: 'mapa-root'
 })
-export class Root {
+export class Root implements ComponentInterface {
 
   render() {
-    return (
-      <mapa-router/>
-    );
+    return [
+      <mapa-router/>,
+      <ion-nav/>
+    ];
   }
 }

@@ -1,8 +1,7 @@
 {
   "$schema": "config.schema.json",
   "urls": {
-    "api": "//localhost:3400/api",
-    "assets": "//localhost:3400"
+    "api": "//localhost:9000/.netlify/functions/apollo-graphql"
   },
   "console": {},
   "defaults": {

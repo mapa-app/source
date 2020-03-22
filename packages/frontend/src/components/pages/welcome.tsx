@@ -1,39 +1,41 @@
-import { Component, h } from '@stencil/core';
+import { Component, ComponentInterface, h } from '@stencil/core';
 
 @Component({
   tag: 'mapa-welcome'
 })
-export class Welcome {
+export class Welcome implements ComponentInterface {
 
   render() {
     return (
-      <ion-content class="ion-padding ion-text-center">
-        <mapa-header headline="Hi there!">
+      <ion-content class="ion-padding ion-text-center use-gradient">
+        <mapa-header headline="Hallo!">
           <mapa-icon-logo/>
         </mapa-header>
 
-        <p>
-          Welcome to MaPa - your family assistant.
-        </p>
+        <mapa-main>
+          <p>
+            Willkommen bei MaPa, dein Familien-Helfer.
+          </p>
 
-        <ion-button href="/profile/create"
-                    color="primary"
-                    expand="block"
-        >
-          Let's start
-        </ion-button>
-        <ion-button href="/profile/create"
-                    color="secondary"
-                    expand="block"
-        >
-          Accept invitation
-        </ion-button>
-        <ion-button href="/profile/create"
-                    color="tertiary"
-                    expand="block"
-        >
-          I already have an account
-        </ion-button>
+          <ion-button href="/profile/create"
+                      color="primary"
+                      expand="block"
+          >
+            Lass uns starten
+          </ion-button>
+          <ion-button color="secondary"
+                      expand="block"
+          >
+            Einladung annehmen
+          </ion-button>
+          <ion-button href="/login"
+                      fill="clear"
+                      color="secondary"
+                      expand="block"
+          >
+            LOG IN
+          </ion-button>
+        </mapa-main>
       </ion-content>
     );
   }

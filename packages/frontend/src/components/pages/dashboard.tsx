@@ -1,9 +1,9 @@
-import { Component, h } from '@stencil/core';
+import { Component, ComponentInterface, h } from '@stencil/core';
 
 @Component({
   tag: 'mapa-dashboard'
 })
-export class Dashboard {
+export class Dashboard implements ComponentInterface {
 
   render() {
     return (
@@ -12,23 +12,25 @@ export class Dashboard {
           <mapa-icon-logo/>
         </mapa-header>
 
-        <p>
-          Welcome Anna!
-        </p>
-        <p>
-          We will help you to manage your everyday family life.
-          You will have a helpful overview of Mike’s and Sara’s life.
-          And if you need help, our professional team is here for you.
-        </p>
+        <mapa-main>
+          <p>
+            Welcome Anna!
+          </p>
+          <p>
+            We will help you to manage your everyday family life.
+            You will have a helpful overview of Mike’s and Sara’s life.
+            And if you need help, our professional team is here for you.
+          </p>
 
-        <pre>Daily tip</pre>
+          <pre>Daily tip</pre>
 
-        <ion-button href="/explore"
-                    color="primary"
-                    expand="block"
-        >
-          Explore MaPa
-        </ion-button>
+          <ion-button href="/explore"
+                      color="primary"
+                      expand="block"
+          >
+            Explore MaPa
+          </ion-button>
+        </mapa-main>
       </ion-content>
     );
   }
