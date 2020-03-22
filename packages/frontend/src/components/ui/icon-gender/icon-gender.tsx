@@ -11,7 +11,7 @@ export class IconGender implements ComponentInterface {
 
   render() {
     return (
-      <tl-icon>
+      <mapa-icon>
         { this.gender === 'female' && (
           <svg version="1.1"
                xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +32,7 @@ export class IconGender implements ComponentInterface {
             />
           </svg>
         ) }
-      </tl-icon>
+      </mapa-icon>
     );
   }
 
