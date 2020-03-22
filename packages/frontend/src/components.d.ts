@@ -11,8 +11,10 @@ export namespace Components {
         "selected"?: string;
     }
     interface MapaDiary {
+        "hasActive": boolean;
     }
     interface MapaDiaryEntry {
+        "active": boolean;
         "avatars": string[];
         "date": Date;
         "headline": string;
@@ -52,6 +54,8 @@ export namespace Components {
     interface MapaPageDashboard {
     }
     interface MapaPageDiary {
+        "closeEntry": (event: Event) => Promise<void>;
+        "showEntry": (event: Event, entry: string) => Promise<void>;
     }
     interface MapaPageDocuments {
     }
@@ -293,8 +297,10 @@ declare namespace LocalJSX {
         "selected"?: string;
     }
     interface MapaDiary {
+        "hasActive"?: boolean;
     }
     interface MapaDiaryEntry {
+        "active"?: boolean;
         "avatars"?: string[];
         "date"?: Date;
         "headline"?: string;

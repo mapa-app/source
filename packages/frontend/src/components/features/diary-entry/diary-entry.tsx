@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, h, Prop } from '@stencil/core';
+import { Component, ComponentInterface, h, Host, Prop } from '@stencil/core';
 
 @Component({
   tag: 'mapa-diary-entry',
@@ -6,6 +6,9 @@ import { Component, ComponentInterface, h, Prop } from '@stencil/core';
   shadow: true
 })
 export class DiaryEntry implements ComponentInterface {
+
+  @Prop()
+  active = false;
 
   @Prop()
   headline: string;
@@ -23,34 +26,36 @@ export class DiaryEntry implements ComponentInterface {
   image?: string;
 
   render() {
-    return [
-      <header>
-        <section>
-          <h2>{ this.headline }</h2>
-          <time>{ this.date.toLocaleDateString() }</time>
-          { this.location && (
-            <address>{ this.location }</address>
+    return (
+      <Host class={ { active: this.active } }>
+        <header>
+          <section>
+            <h2>{ this.headline }</h2>
+            <time>{ this.date.toLocaleDateString() }</time>
+            { this.location && (
+              <address>{ this.location }</address>
+            ) }
+          </section>
+          { this.avatars.length > 0 && (
+            <aside>
+              { this.avatars.map(avatar => (
+                <div class="avatar"
+                     style={ { '--avatar-image': `url("${ avatar }")` } }
+                />
+              )) }
+            </aside>
           ) }
-        </section>
-        { this.avatars.length > 0 && (
-          <aside>
-            { this.avatars.map(avatar => (
-              <div class="avatar"
-                   style={ { '--avatar-image': `url("${ avatar }")` } }
-              />
-            )) }
-          </aside>
+        </header>
+        <p>
+          <slot/>
+        </p>
+        { this.image && (
+          <img src={ this.image }
+               alt={ this.headline }
+          />
         ) }
-      </header>,
-      <p>
-        <slot/>
-      </p>,
-      this.image && (
-        <img src={ this.image }
-             alt={ this.headline }
-        />
-      )
-    ];
+      </Host>
+    );
   }
 
 }
