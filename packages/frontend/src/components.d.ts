@@ -12,6 +12,13 @@ export namespace Components {
     }
     interface MapaDiary {
     }
+    interface MapaDiaryEntry {
+        "avatars": string[];
+        "date": Date;
+        "headline": string;
+        "image"?: string;
+        "location"?: string;
+    }
     interface MapaFamilyState {
         "active": boolean;
         "status": "together" | "divorced" | "patched" | "single";
@@ -82,6 +89,12 @@ declare global {
     var HTMLMapaDiaryElement: {
         prototype: HTMLMapaDiaryElement;
         new (): HTMLMapaDiaryElement;
+    };
+    interface HTMLMapaDiaryEntryElement extends Components.MapaDiaryEntry, HTMLStencilElement {
+    }
+    var HTMLMapaDiaryEntryElement: {
+        prototype: HTMLMapaDiaryEntryElement;
+        new (): HTMLMapaDiaryEntryElement;
     };
     interface HTMLMapaFamilyStateElement extends Components.MapaFamilyState, HTMLStencilElement {
     }
@@ -236,6 +249,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "mapa-color-picker": HTMLMapaColorPickerElement;
         "mapa-diary": HTMLMapaDiaryElement;
+        "mapa-diary-entry": HTMLMapaDiaryEntryElement;
         "mapa-family-state": HTMLMapaFamilyStateElement;
         "mapa-gender-select": HTMLMapaGenderSelectElement;
         "mapa-header": HTMLMapaHeaderElement;
@@ -270,6 +284,13 @@ declare namespace LocalJSX {
         "selected"?: string;
     }
     interface MapaDiary {
+    }
+    interface MapaDiaryEntry {
+        "avatars"?: string[];
+        "date"?: Date;
+        "headline"?: string;
+        "image"?: string;
+        "location"?: string;
     }
     interface MapaFamilyState {
         "active"?: boolean;
@@ -332,6 +353,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "mapa-color-picker": MapaColorPicker;
         "mapa-diary": MapaDiary;
+        "mapa-diary-entry": MapaDiaryEntry;
         "mapa-family-state": MapaFamilyState;
         "mapa-gender-select": MapaGenderSelect;
         "mapa-header": MapaHeader;
@@ -365,6 +387,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "mapa-color-picker": LocalJSX.MapaColorPicker & JSXBase.HTMLAttributes<HTMLMapaColorPickerElement>;
             "mapa-diary": LocalJSX.MapaDiary & JSXBase.HTMLAttributes<HTMLMapaDiaryElement>;
+            "mapa-diary-entry": LocalJSX.MapaDiaryEntry & JSXBase.HTMLAttributes<HTMLMapaDiaryEntryElement>;
             "mapa-family-state": LocalJSX.MapaFamilyState & JSXBase.HTMLAttributes<HTMLMapaFamilyStateElement>;
             "mapa-gender-select": LocalJSX.MapaGenderSelect & JSXBase.HTMLAttributes<HTMLMapaGenderSelectElement>;
             "mapa-header": LocalJSX.MapaHeader & JSXBase.HTMLAttributes<HTMLMapaHeaderElement>;

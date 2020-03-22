@@ -71,11 +71,10 @@ export class KidsCreate implements ComponentInterface {
               >
                 Geburtstag
               </ion-label>
-              <ion-input type="date"
-                         name="birthday"
-                         value={ this.birthday }
-                         color={ this.hasError && 'danger' }
-                         onInput={ event => this.handleChange(event) }
+              <ion-datetime value="1990-02-19"
+                            name="birthday"
+                            color={ this.hasError && 'danger' }
+                            onChange={ event => this.handleChange(event) }
               />
             </ion-item>
 
