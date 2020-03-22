@@ -11,6 +11,7 @@
 		"apollo-server": "2.11.0",
 		"apollo-server-express": "2.11.0",
     "apollo-server-lambda": "2.11.0",
+    "aws-sdk": "2.643.0",
 		"bcrypt": "4.0.1",
 		"cors": "2.8.5",
 		"express": "4.17.1",
