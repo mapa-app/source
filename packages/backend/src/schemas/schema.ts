@@ -42,7 +42,7 @@ export const schema = gql`
 
   extend type Query {
     user(id: ID!): User!
-    login(name: String!, password: String!): String!
+    login(name: String!, password: String!): Boolean!
     diary(user:UserInput!): Diary!
   }
 
