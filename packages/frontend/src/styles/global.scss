@@ -71,11 +71,6 @@ body {
   line-height: 2.1rem;
 }
 
-main.inner-scroll {
-  display: flex !important;
-  flex-direction: column;
-}
-
 ion-content {
   @include useGradient();
 }
