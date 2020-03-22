@@ -1,26 +1,38 @@
-import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
-import { AuthenticationError } from 'apollo-server';
-import { userModel } from '../models/user.model';
-import { diaryModel } from '../models/diary.model';
-import { roleModel } from '../models/role.model';
-import { familyModel } from '../models/family.model'
-import { diaryEntryModel } from '../models/diaryentry.model';
-import { duplicateArgMessage } from 'graphql/validation/rules/UniqueArgumentNames';
+import { childModel,instanceOfChild } from '../models/child.model';
+import { parentModel } from '../models/parent.model';
+import { familyModel,Family } from '../models/family.model'
 
 export const userResolver = {
   Query: {
-    user: async (parent, { id }, context, info) => {
-      const user = await userModel.findById({ _id: id }).exec();
+    login: async (parent, { name,password }, context, info) => {
+      const user = await resolveUserByNameAndPassword(name,password)
+      console.log(user)
       return user;
     },
-  },
-  Mutation: {
-    createUser: async (parent, { name, password, role }, context, info) => {
-        const user = await userModel.create({ name, password, role });
-        return user;
+    myFamily:async (parent, { id }, context, info) => {
+      const user = await resolveUser(id)
+      var family: Family = null
+      if (instanceOfChild(user)) {
+        family = await familyModel.findOne({ children: user })
+      } else {
+        family = await familyModel.findOne({ parents: user })
       }
-
+      return family;
     }
-  
+  }
 };
+
+async function resolveUserByNameAndPassword(name:String,password:String){
+  const child = await childModel.findOne({ name: name,password:password })
+  const parent = await parentModel.findOne({ name: name,password:password });
+  return child == null ? parent:child
+}
+
+async function resolveUser(id:String){
+  const child = await childModel.findById({ _id: id }).exec();
+  const parent = await parentModel.findById({_id: id }).exec();
+  return child == null ? parent:child
+}
+
+export { resolveUser as resolveUser }
+export { resolveUserByNameAndPassword as resolveUserByNameAndPassword }

@@ -1,0 +1,87 @@
+mutation {
+  createChild(
+    name: "Herbert"
+    password: "test"
+    color: "#234234"
+    birthdate: "123546213541234"
+    gender: true
+    image: "base64"
+  ) {
+    name
+  }
+}
+
+mutation {
+  createParent(
+    name: "Herbert"
+    password: "test"
+    color: "#234234"
+  ) {
+    name
+  }
+}
+
+
+mutation {
+  createFamily(
+    name: "Die Herberts",
+    state:"geschieden"
+  ) {
+    name
+  }
+}
+
+mutation {
+  addMember(
+    id: "5e77517682c10031b71b7692",
+    name:"Die Herberts"
+  ) {
+    name
+  }
+}
+
+mutation {
+  addDiaryEntry(
+    id: "5e77517682c10031b71b7692"
+    entry: {
+      text: "werwe"
+      date: "4423453245"
+      image: "sadsad"
+      parents: ["5e7751db82c10031b71b7693"]
+      children: []
+    }
+  )
+}
+
+query {
+  diary(id: "5e77517682c10031b71b7692") {
+    diaryEntries {
+      text
+      date
+    }
+  }
+}
+
+
+query {
+  login(
+   	name:"Herbert",
+    password:"test"
+  ){id}
+}
+
+query {
+  family(name: "Die Herberts") {
+    children {
+      name
+    }
+  }
+}
+
+query {
+  myFamily(id: "5e77517682c10031b71b7692") {
+   children{name}
+  }
+}
+
+

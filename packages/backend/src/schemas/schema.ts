@@ -1,65 +1,70 @@
 import { gql } from 'apollo-server';
 
 export const schema = gql`
-  type User {
+  type Child {
     id: ID!
     name: String!
-    diary: Diary!
-    role: String!
-    family:Family!
+    birthdate:String!
+    gender:Boolean!
+    color:String!
+    image:String!
   }
 
 
+  type Parent {
+    id: ID!
+    name: String!
+    color:String!
+  }
+
   type Diary {
-    user: User!
-    diaryEntries: [DiaryEntry!]!
+    family: Family!
+    diaryEntries: [DiaryEntry!]
   }
 
   type DiaryEntry {
     text: String!
     date: String!
+    parents:[Parent!]
+    children:[Child!]
   }
 
   input DiaryEntryInput {
     text: String!
     date: String!
+    image:String!,
+    parents:[String!]
+    children:[String!]
   }
+
+ 
 
   type Family{
     name:String!
-    members:User!
-      
- 
+    state:String!
+    parents:[Parent!]
+    children:[Child!]
   }
 
-  type DiaryEntryPayload{
-    entries:[DiaryEntry]
-  }
-  
-
-  input FamilyInput{
+  type User{
+    id:String!
     name:String!
+    color:String!
   }
 
-  input UserInput{
-    id: ID!
-  }
-
-  input RoleInput{
-    type:String!
-  }
 
   extend type Query {
-    user(id: ID!): User!
-    login(name: String!, password: String!): String!
-    diary(user:UserInput!):Diary!
+    login(name: String!, password: String!): User!
+    diary(id:ID!):Diary!
     family(name:String!):Family!
+    myFamily(id:ID!):Family!
   }
 
   extend type Mutation {
-    createUser(name: String!, password: String!,role:RoleInput!): User!
-    createFamily(name:String!):Family!
+    createChild(name: String!, password: String!,color:String!,birthdate:String!,gender:Boolean!,image:String!): User!
+    createParent(name: String!, password: String!,color:String!):Parent!
+    createFamily(name:String!,state:String!):Family!
     addDiaryEntry(id:ID!,entry:DiaryEntryInput!): Boolean!
-    addMember(id:ID!,family:FamilyInput!):Family!
+    addMember(id:ID!,name:String!):Family!
   }
 `;

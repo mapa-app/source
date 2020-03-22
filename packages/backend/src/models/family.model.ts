@@ -1,9 +1,10 @@
 import mongoose from 'mongoose';
-import {userModel, User} from './user.model'
-
+import {parentModel,Parent} from './parent.model'
+import {childModel,Child} from './child.model'
 export interface Family extends mongoose.Document {
   name: String;
-  members:[User]
+  children:[Child];
+  parents:[Parent];
 }
 
 const familySchema = new mongoose.Schema({
@@ -11,8 +12,15 @@ const familySchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  members:{
-    type:[userModel.schema]
+  state:{
+    type:String,
+    required:true
+  },
+  children:{
+    type:[childModel.schema]
+  },
+  parents:{
+    type:[parentModel.schema]
   }
 });
 
