@@ -5,22 +5,18 @@ import { resolveUser } from './user.resolver';
 import { diaryEntryModel,DiaryEntry } from '../models/diaryentry.model';
 export const diaryEntryResolver = {
     Mutation: {
-        addDiaryEntry: async (parent, { id, entry }, context, info) => {
-            const user = await resolveUser(id)
+        addDiaryEntry: async (parent, { userID, entry }, context, info) => {
+            const user = await resolveUser(userID)
             var family:Family = null
-
+            console.log(user)
             if (instanceOfChild(user)){
-               family = await familyModel.findOne({children:user})
+               family = await familyModel.findOne({children:user.id})
             }else{
-                family = await familyModel.findOne({parents:user})
+                family = await familyModel.findOne({parents:user.id})
             }
 
             const diary:Diary = await diaryModel.findOne({family:family})
-            console.log(diary)
-
-
-
-     
+           
             const diaEntry = await diaryEntryModel.create({
                 text: entry.text,
                 date: entry.date,
@@ -28,7 +24,6 @@ export const diaryEntryResolver = {
                 parents:entry.parents,
                 children:entry.children})
 
-                console.log(diary)
             if(diary == null){
                 await diaryModel.create({ family: family, diaryEntries: [
                     diaEntry

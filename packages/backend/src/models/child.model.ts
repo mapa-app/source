@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 export interface Child extends mongoose.Document {
   name: String;
   birthdate:Date;
-  gender:Boolean;
+  gender:String;
   image:String;
   color:String;
   password:String;
@@ -20,7 +20,7 @@ const childSchema = new mongoose.Schema({
     type:Date
   },
   gender:{
-    type:Boolean
+    type:String
   },
   image:{
     type:String

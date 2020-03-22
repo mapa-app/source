@@ -11,17 +11,19 @@ export const familyResolver = {
           }
     },
     Mutation: {
-        addMember: async (parent, { id,name }, context, info) => {
-            const cfamily:Family  = await familyModel.findOne({ name: name });
-            const user = await resolveUser(id)
+        addFamilyMember: async (parent, { userID,familyID }, context, info) => {
+            const cfamily:Family  = await familyModel.findById({ _id: familyID });
+            console.log(cfamily)
+            const user = await resolveUser(userID)
+            console.log(user)
             if (cfamily == null) {
-                const createdFamily = await familyModel.create({ name: name,members:[user] });
+                const createdFamily = await familyModel.create({ name: cfamily.name,members:[user] });
                 return createdFamily
             }else{
                 if (instanceOfChild(user)){
-                    cfamily.children.push(user);
+                    cfamily.children.push(user.id);
                   }else{
-                    cfamily.parents.push(user);
+                    cfamily.parents.push(user.id);
                   }
                 cfamily.save();
             }

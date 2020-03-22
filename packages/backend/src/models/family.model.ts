@@ -3,13 +3,14 @@ import {parentModel,Parent} from './parent.model'
 import {childModel,Child} from './child.model'
 export interface Family extends mongoose.Document {
   name: String;
-  children:[Child];
-  parents:[Parent];
+  children:[String];
+  parents:[String];
 }
 
 const familySchema = new mongoose.Schema({
   name: {
     type: String,
+    unique: true,
     required: true
   },
   state:{
@@ -17,10 +18,10 @@ const familySchema = new mongoose.Schema({
     required:true
   },
   children:{
-    type:[childModel.schema]
+    type:[String]
   },
   parents:{
-    type:[parentModel.schema]
+    type:[String]
   }
 });
 

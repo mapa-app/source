@@ -4,7 +4,7 @@ mutation {
     password: "test"
     color: "#234234"
     birthdate: "123546213541234"
-    gender: true
+    gender: MALE
     image: "base64"
   ) {
     name
@@ -24,17 +24,17 @@ mutation {
 
 mutation {
   createFamily(
-    name: "Die Herberts",
-    state:"geschieden"
+    name: "Die Herberts2",
+    state:DIVORCED
   ) {
     name
   }
 }
 
 mutation {
-  addMember(
-    id: "5e77517682c10031b71b7692",
-    name:"Die Herberts"
+  addFamilyMember(
+    userID: "5e77517682c10031b71b7692",
+    familyID:"5e776fe9ede5535791ed47c1"
   ) {
     name
   }
@@ -42,15 +42,16 @@ mutation {
 
 mutation {
   addDiaryEntry(
-    id: "5e77517682c10031b71b7692"
+    userID: "5e77703e2b108258218da2e3" 
     entry: {
       text: "werwe"
       date: "4423453245"
       image: "sadsad"
-      parents: ["5e7751db82c10031b71b7693"]
+      parents: []
       children: []
     }
   )
+}
 }
 
 query {
