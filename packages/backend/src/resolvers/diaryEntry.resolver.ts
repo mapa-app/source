@@ -1,4 +1,4 @@
-import { childModel ,Child,instanceOfChild} from '../models/child.model';
+import { instanceOfChild } from '../models/child.model';
 import { familyModel,Family } from '../models/family.model';
 import { diaryModel,Diary } from '../models/diary.model';
 import { resolveUser } from './user.resolver';
@@ -8,7 +8,7 @@ export const diaryEntryResolver = {
         addDiaryEntry: async (parent, { userID, entry }, context, info) => {
             const user = await resolveUser(userID)
             var family:Family = null
-            console.log(user)
+
             if (instanceOfChild(user)){
                family = await familyModel.findOne({children:user.id})
             }else{
@@ -29,7 +29,6 @@ export const diaryEntryResolver = {
                     diaEntry
                 ]});
             }else{
-                console.log("add new")
                 diary.diaryEntries.push(diaEntry)
                 diary.save()
             }

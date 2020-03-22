@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
-import {childModel, Child} from './child.model'
-import {parentModel, Parent} from './parent.model'
+
 export interface DiaryEntry extends mongoose.Document {
   text: String;
   date: Date;
