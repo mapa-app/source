@@ -82,7 +82,7 @@ export class KidsCreate implements ComponentInterface {
                 <ion-datetime value="1990-02-19"
                               name="birthday"
                               color={ this.hasError && 'danger' }
-                              onChange={ event => this.handleChange(event) }
+                              onIonChange={ event => this.handleChange(event) }
                 />
               </ion-item>
 
