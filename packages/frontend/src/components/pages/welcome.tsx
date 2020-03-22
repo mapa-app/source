@@ -1,9 +1,9 @@
-import { Component, h } from '@stencil/core';
+import { Component, ComponentInterface, h } from '@stencil/core';
 
 @Component({
   tag: 'mapa-welcome'
 })
-export class Welcome {
+export class Welcome implements ComponentInterface {
 
   render() {
     return (
@@ -17,19 +17,19 @@ export class Welcome {
             Welcome to MaPa - your family assistant.
           </p>
 
-          <ion-button href="/profile/create"
+          <ion-button href="/login"
                       color="primary"
                       expand="block"
           >
             Let's start
           </ion-button>
-          <ion-button href="/profile/create"
+          <ion-button href="/login"
                       color="secondary"
                       expand="block"
           >
             Accept invitation
           </ion-button>
-          <ion-button href="/profile/create"
+          <ion-button href="/login"
                       color="tertiary"
                       expand="block"
           >

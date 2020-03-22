@@ -1,9 +1,9 @@
-import { Component, h } from '@stencil/core';
+import { Component, ComponentInterface, h } from '@stencil/core';
 
 @Component({
   tag: 'mapa-mediation'
 })
-export class Mediation {
+export class Mediation implements ComponentInterface {
 
   render() {
     return (

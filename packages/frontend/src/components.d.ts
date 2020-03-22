@@ -27,6 +27,8 @@ export namespace Components {
     }
     interface MapaKidsCreate {
     }
+    interface MapaLogin {
+    }
     interface MapaMain {
     }
     interface MapaMediation {
@@ -104,6 +106,12 @@ declare global {
         prototype: HTMLMapaKidsCreateElement;
         new (): HTMLMapaKidsCreateElement;
     };
+    interface HTMLMapaLoginElement extends Components.MapaLogin, HTMLStencilElement {
+    }
+    var HTMLMapaLoginElement: {
+        prototype: HTMLMapaLoginElement;
+        new (): HTMLMapaLoginElement;
+    };
     interface HTMLMapaMainElement extends Components.MapaMain, HTMLStencilElement {
     }
     var HTMLMapaMainElement: {
@@ -157,6 +165,7 @@ declare global {
         "mapa-icon": HTMLMapaIconElement;
         "mapa-icon-logo": HTMLMapaIconLogoElement;
         "mapa-kids-create": HTMLMapaKidsCreateElement;
+        "mapa-login": HTMLMapaLoginElement;
         "mapa-main": HTMLMapaMainElement;
         "mapa-mediation": HTMLMapaMediationElement;
         "mapa-profile": HTMLMapaProfileElement;
@@ -188,6 +197,8 @@ declare namespace LocalJSX {
     }
     interface MapaKidsCreate {
     }
+    interface MapaLogin {
+    }
     interface MapaMain {
     }
     interface MapaMediation {
@@ -214,6 +225,7 @@ declare namespace LocalJSX {
         "mapa-icon": MapaIcon;
         "mapa-icon-logo": MapaIconLogo;
         "mapa-kids-create": MapaKidsCreate;
+        "mapa-login": MapaLogin;
         "mapa-main": MapaMain;
         "mapa-mediation": MapaMediation;
         "mapa-profile": MapaProfile;
@@ -237,6 +249,7 @@ declare module "@stencil/core" {
             "mapa-icon": LocalJSX.MapaIcon & JSXBase.HTMLAttributes<HTMLMapaIconElement>;
             "mapa-icon-logo": LocalJSX.MapaIconLogo & JSXBase.HTMLAttributes<HTMLMapaIconLogoElement>;
             "mapa-kids-create": LocalJSX.MapaKidsCreate & JSXBase.HTMLAttributes<HTMLMapaKidsCreateElement>;
+            "mapa-login": LocalJSX.MapaLogin & JSXBase.HTMLAttributes<HTMLMapaLoginElement>;
             "mapa-main": LocalJSX.MapaMain & JSXBase.HTMLAttributes<HTMLMapaMainElement>;
             "mapa-mediation": LocalJSX.MapaMediation & JSXBase.HTMLAttributes<HTMLMapaMediationElement>;
             "mapa-profile": LocalJSX.MapaProfile & JSXBase.HTMLAttributes<HTMLMapaProfileElement>;

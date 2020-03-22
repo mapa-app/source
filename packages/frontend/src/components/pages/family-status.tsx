@@ -1,9 +1,9 @@
-import { Component, h } from '@stencil/core';
+import { Component, ComponentInterface, h } from '@stencil/core';
 
 @Component({
   tag: 'mapa-family-status'
 })
-export class FamilyStatus {
+export class FamilyStatus implements ComponentInterface {
 
   render() {
     return (

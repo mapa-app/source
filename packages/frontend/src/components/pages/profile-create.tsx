@@ -1,9 +1,9 @@
-import { Component, h } from '@stencil/core';
+import { Component, ComponentInterface, h } from '@stencil/core';
 
 @Component({
   tag: 'mapa-profile-create'
 })
-export class ProfileCreate {
+export class ProfileCreate implements ComponentInterface {
 
   render() {
     return (
