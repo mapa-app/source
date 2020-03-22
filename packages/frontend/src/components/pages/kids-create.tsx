@@ -1,5 +1,5 @@
 import { Component, ComponentInterface, h, Listen, State } from '@stencil/core';
-import { createKid } from '../../queries/create-kid.query';
+import { createChild } from '../../mutations/create-child.mutation';
 import { openURL } from '../../utils/router.utils';
 
 @Component({
@@ -37,7 +37,7 @@ export class KidsCreate implements ComponentInterface {
   async handleSubmit(event: Event) {
     event.preventDefault();
 
-    this.hasError = !await createKid(this.name, new Date(this.birthday), this.gender);
+    this.hasError = !await createChild(this.name, new Date(this.birthday), this.gender);
     if (!this.hasError) {
       await openURL('/family/status', event, 'forward');
     }

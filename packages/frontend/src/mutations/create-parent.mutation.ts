@@ -1,7 +1,7 @@
 import { Parent } from '@mapa/backend';
 import { query } from '../utils/query.utils';
 
-export async function register(name: Parent['name'], pass: Parent['password'], color: string): Promise<Parent | false> {
+export async function createParent(name: Parent['name'], pass: Parent['password'], color: string): Promise<Parent | false> {
   try {
     const response = await query<Parent | false>(`
       mutation {
