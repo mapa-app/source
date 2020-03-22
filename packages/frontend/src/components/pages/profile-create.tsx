@@ -1,6 +1,8 @@
 import { Component, ComponentInterface, h, State } from '@stencil/core';
 import { Role } from '@mapa/backend';
+
 import { register } from '../../queries/register.query';
+import { openURL } from '../../utils/router.utils';
 
 @Component({
   tag: 'mapa-profile-create'
@@ -36,13 +38,10 @@ export class ProfileCreate implements ComponentInterface {
 
   async handleSubmit(event: Event) {
     event.preventDefault();
-    await this.register();
-  }
 
-  async register() {
     this.hasError = !await register(this.username, this.password, this.role, this.color);
     if (!this.hasError) {
-      history.pushState(null, null, '/family/status');
+      await openURL('/family/status', event, 'forward');
     }
   }
 

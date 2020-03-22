@@ -1,5 +1,7 @@
 import { Component, ComponentInterface, h, State } from '@stencil/core';
+
 import { login } from '../../queries/login.query';
+import { openURL } from '../../utils/router.utils';
 
 @Component({
   tag: 'mapa-login'
@@ -29,13 +31,10 @@ export class Login implements ComponentInterface {
 
   async handleSubmit(event: Event) {
     event.preventDefault();
-    await this.login();
-  }
 
-  async login() {
     this.hasError = !await login(this.username, this.password);
     if (!this.hasError) {
-      history.pushState(null, null, '/profile/create');
+      await openURL('/dashboard', event, 'forward');
     }
   }
 
