@@ -19,9 +19,10 @@ export const handler = server.createHandler();
 console.log('created handler');
 
 MongoClient.connect('mongodb://ds233596.mlab.com:33596/mapa', {
-  // TODO: use credentials from env vars!
-  user: 'mapa',
-  pass: 'i9-Af4xeq57C#34',
+  auth: {
+    user: 'mapa',
+    password: 'i9-Af4xeq57C#34',
+  },
   bufferCommands: false,
   bufferMaxEntries: 0,
   useNewUrlParser: true,
