@@ -8,12 +8,12 @@ import { Component, ComponentInterface, Event, EventEmitter, h, Prop } from '@st
 export class GenderSelect implements ComponentInterface {
 
   @Prop({ mutable: true })
-  selected?: 'female' | 'male';
+  selected?: 'FEMALE' | 'MALE';
 
   @Event()
-  gendered: EventEmitter<'female' | 'male'>;
+  gendered: EventEmitter<'FEMALE' | 'MALE'>;
 
-  handleChange(select: 'female' | 'male') {
+  handleChange(select: 'FEMALE' | 'MALE') {
     if (this.selected === select) {
       return;
     }
@@ -24,21 +24,21 @@ export class GenderSelect implements ComponentInterface {
 
   render() {
     return [
-      <mapa-icon-gender gender="female"
+      <mapa-icon-gender gender="FEMALE"
                         class={ {
                           gender: true,
                           female: true,
-                          active: this.selected === 'female'
+                          active: this.selected === 'FEMALE'
                         } }
-                        onClick={ () => this.handleChange('female') }
+                        onClick={ () => this.handleChange('FEMALE') }
       />,
-      <mapa-icon-gender gender="male"
+      <mapa-icon-gender gender="MALE"
                         class={ {
                           gender: true,
                           male: true,
-                          active: this.selected === 'male'
+                          active: this.selected === 'MALE'
                         } }
-                        onClick={ () => this.handleChange('male') }
+                        onClick={ () => this.handleChange('MALE') }
       />
     ];
   }

@@ -21,10 +21,10 @@ export namespace Components {
     }
     interface MapaFamilyState {
         "active": boolean;
-        "status": "together" | "divorced" | "patched" | "single";
+        "status": "TOGETHER" | "DIVORCED" | "PATCHED" | "SINGLE";
     }
     interface MapaGenderSelect {
-        "selected"?: "female" | "male";
+        "selected"?: "FEMALE" | "MALE";
     }
     interface MapaHeader {
         "headline"?: string;
@@ -32,10 +32,10 @@ export namespace Components {
     interface MapaIcon {
     }
     interface MapaIconFamily {
-        "status": "together" | "divorced" | "patched" | "single";
+        "status": "TOGETHER" | "DIVORCED" | "PATCHED" | "SINGLE";
     }
     interface MapaIconGender {
-        "gender": "female" | "male";
+        "gender": "FEMALE" | "MALE";
     }
     interface MapaIconHome {
     }
@@ -303,11 +303,11 @@ declare namespace LocalJSX {
     }
     interface MapaFamilyState {
         "active"?: boolean;
-        "status"?: "together" | "divorced" | "patched" | "single";
+        "status"?: "TOGETHER" | "DIVORCED" | "PATCHED" | "SINGLE";
     }
     interface MapaGenderSelect {
-        "onGendered"?: (event: CustomEvent<"female" | "male">) => void;
-        "selected"?: "female" | "male";
+        "onGendered"?: (event: CustomEvent<"FEMALE" | "MALE">) => void;
+        "selected"?: "FEMALE" | "MALE";
     }
     interface MapaHeader {
         "headline"?: string;
@@ -315,10 +315,10 @@ declare namespace LocalJSX {
     interface MapaIcon {
     }
     interface MapaIconFamily {
-        "status"?: "together" | "divorced" | "patched" | "single";
+        "status"?: "TOGETHER" | "DIVORCED" | "PATCHED" | "SINGLE";
     }
     interface MapaIconGender {
-        "gender"?: "female" | "male";
+        "gender"?: "FEMALE" | "MALE";
     }
     interface MapaIconHome {
     }

@@ -1,6 +1,6 @@
 import { Component, ComponentInterface, h, Listen, State } from '@stencil/core';
-// import { register } from '../../queries/register.query';
-// import { openURL } from '../../utils/router.utils';
+import { createChild } from '../../mutations/create-child.mutation';
+import { openURL } from '../../utils/router.utils';
 
 @Component({
   tag: 'mapa-page-kids-create'
@@ -17,7 +17,7 @@ export class KidsCreate implements ComponentInterface {
   birthday = '';
 
   @State()
-  gender: 'female' | 'male';
+  gender: 'FEMALE' | 'MALE';
 
   get disabled(): boolean {
     return this.name === ''
@@ -27,6 +27,7 @@ export class KidsCreate implements ComponentInterface {
 
   async handleChange(event: Event) {
     const { name, value } = event.target as HTMLInputElement;
+    console.log(typeof value, value);
     if (name in this) {
       this[name] = value;
       this.hasError = false;
@@ -36,10 +37,10 @@ export class KidsCreate implements ComponentInterface {
   async handleSubmit(event: Event) {
     event.preventDefault();
 
-    // this.hasError = !await register(this.username, this.password, this.role, this.color);
-    // if (!this.hasError) {
-    //   await openURL('/family/status', event, 'forward');
-    // }
+    this.hasError = !await createChild(this.name, new Date(this.birthday), this.gender);
+    if (!this.hasError) {
+      await openURL('/family/status', event, 'forward');
+    }
   }
 
   @Listen('keydown')

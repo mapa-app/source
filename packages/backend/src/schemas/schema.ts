@@ -2,7 +2,7 @@ import { gql } from 'apollo-server';
 
 export const schema = gql`
 
- 
+
   enum Gender {
     MALE
     FEMALE
@@ -65,7 +65,7 @@ export const schema = gql`
   }
 
   extend type Mutation {
-    createChild(name: String!, password: String!,color:String!,birthdate:String!,gender:Gender!,image:String!): Child!
+    createChild(name: String!,birthdate:String!,gender:Gender!): Child!
     createParent(name: String!, password: String!,color:String!):Parent!
     createFamily(name:String!,state:FamilyState!):Family!
     addDiaryEntry(userID:ID!,entry:DiaryEntryInput!): Boolean!

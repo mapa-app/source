@@ -7,11 +7,11 @@ import { Component, ComponentInterface, h, Prop } from '@stencil/core';
 export class IconFamily implements ComponentInterface {
 
   @Prop()
-  status: 'together' | 'divorced' | 'patched' | 'single' = 'together';
+  status: 'TOGETHER' | 'DIVORCED' | 'PATCHED' | 'SINGLE' = 'TOGETHER';
 
   render() {
     switch (this.status) {
-      case 'together':
+      case 'TOGETHER':
         return (
           <mapa-icon>
             <svg version="1.1"
@@ -33,7 +33,7 @@ export class IconFamily implements ComponentInterface {
           </mapa-icon>
         );
 
-      case 'divorced':
+      case 'DIVORCED':
         return (
           <mapa-icon>
             <svg version="1.1"
@@ -54,7 +54,7 @@ export class IconFamily implements ComponentInterface {
           </mapa-icon>
         );
 
-      case 'patched':
+      case 'PATCHED':
         return (
           <mapa-icon>
             <svg version="1.1"
@@ -85,7 +85,7 @@ export class IconFamily implements ComponentInterface {
           </mapa-icon>
         );
 
-      case 'single':
+      case 'SINGLE':
         return (
           <mapa-icon>
             <svg version="1.1"

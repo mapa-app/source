@@ -1,6 +1,6 @@
 import { Component, ComponentInterface, h, Listen, State } from '@stencil/core';
 
-import { register } from '../../queries/register.query';
+import { createParent } from '../../mutations/create-parent.mutation';
 import { openURL } from '../../utils/router.utils';
 
 @Component({
@@ -37,7 +37,7 @@ export class ProfileCreate implements ComponentInterface {
   async handleSubmit(event: Event) {
     event.preventDefault();
 
-    this.hasError = !await register(this.username, this.password, this.color);
+    this.hasError = !await createParent(this.username, this.password, this.color);
     if (!this.hasError) {
       await openURL('/family/status', event, 'forward');
     }

@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
 
 export interface Parent extends mongoose.Document {
-  name: String;
-  password: String;
-  color: String;
+  name: string;
+  password: string;
+  color: string;
 }
 
 const parentSchema = new mongoose.Schema({
