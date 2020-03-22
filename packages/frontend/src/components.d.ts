@@ -76,6 +76,8 @@ export namespace Components {
     }
     interface MapaRouter {
     }
+    interface MapaWrapper {
+    }
 }
 declare global {
     interface HTMLMapaColorPickerElement extends Components.MapaColorPicker, HTMLStencilElement {
@@ -246,6 +248,12 @@ declare global {
         prototype: HTMLMapaRouterElement;
         new (): HTMLMapaRouterElement;
     };
+    interface HTMLMapaWrapperElement extends Components.MapaWrapper, HTMLStencilElement {
+    }
+    var HTMLMapaWrapperElement: {
+        prototype: HTMLMapaWrapperElement;
+        new (): HTMLMapaWrapperElement;
+    };
     interface HTMLElementTagNameMap {
         "mapa-color-picker": HTMLMapaColorPickerElement;
         "mapa-diary": HTMLMapaDiaryElement;
@@ -275,6 +283,7 @@ declare global {
         "mapa-page-welcome": HTMLMapaPageWelcomeElement;
         "mapa-root": HTMLMapaRootElement;
         "mapa-router": HTMLMapaRouterElement;
+        "mapa-wrapper": HTMLMapaWrapperElement;
     }
 }
 declare namespace LocalJSX {
@@ -350,6 +359,8 @@ declare namespace LocalJSX {
     }
     interface MapaRouter {
     }
+    interface MapaWrapper {
+    }
     interface IntrinsicElements {
         "mapa-color-picker": MapaColorPicker;
         "mapa-diary": MapaDiary;
@@ -379,6 +390,7 @@ declare namespace LocalJSX {
         "mapa-page-welcome": MapaPageWelcome;
         "mapa-root": MapaRoot;
         "mapa-router": MapaRouter;
+        "mapa-wrapper": MapaWrapper;
     }
 }
 export { LocalJSX as JSX };
@@ -413,6 +425,7 @@ declare module "@stencil/core" {
             "mapa-page-welcome": LocalJSX.MapaPageWelcome & JSXBase.HTMLAttributes<HTMLMapaPageWelcomeElement>;
             "mapa-root": LocalJSX.MapaRoot & JSXBase.HTMLAttributes<HTMLMapaRootElement>;
             "mapa-router": LocalJSX.MapaRouter & JSXBase.HTMLAttributes<HTMLMapaRouterElement>;
+            "mapa-wrapper": LocalJSX.MapaWrapper & JSXBase.HTMLAttributes<HTMLMapaWrapperElement>;
         }
     }
 }

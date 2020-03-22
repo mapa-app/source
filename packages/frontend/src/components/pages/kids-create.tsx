@@ -52,50 +52,52 @@ export class KidsCreate implements ComponentInterface {
   render() {
     return (
       <ion-content class="ion-padding ion-text-center">
-        <mapa-header headline="Erstelle das Profil deines Kindes">
-          <mapa-icon-kite style={ { color: 'var(--color-orange)' } }/>
-        </mapa-header>
+        <mapa-wrapper>
+          <mapa-header headline="Erstelle das Profil deines Kindes">
+            <mapa-icon-kite style={ { color: 'var(--color-orange)' } }/>
+          </mapa-header>
 
-        <mapa-main>
-          <form onSubmit={ event => this.handleSubmit(event) }>
-            <ion-item>
-              <ion-label position="floating"
-                         color={ this.hasError && 'danger' }
+          <mapa-main>
+            <form onSubmit={ event => this.handleSubmit(event) }>
+              <ion-item>
+                <ion-label position="floating"
+                           color={ this.hasError && 'danger' }
+                >
+                  Name
+                </ion-label>
+                <ion-input type="text"
+                           name="name"
+                           value={ this.name }
+                           color={ this.hasError && 'danger' }
+                           onInput={ event => this.handleChange(event) }
+                />
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating"
+                           color={ this.hasError && 'danger' }
+                >
+                  Geburtstag
+                </ion-label>
+                <ion-datetime value="1990-02-19"
+                              name="birthday"
+                              color={ this.hasError && 'danger' }
+                              onIonChange={ event => this.handleChange(event) }
+                />
+              </ion-item>
+
+              <mapa-gender-select onGendered={ ({ detail }) => this.gender = detail }/>
+
+              <ion-button type="submit"
+                          color="primary"
+                          expand="block"
+                          disabled={ this.hasError || this.disabled }
               >
-                Name
-              </ion-label>
-              <ion-input type="text"
-                         name="name"
-                         value={ this.name }
-                         color={ this.hasError && 'danger' }
-                         onInput={ event => this.handleChange(event) }
-              />
-            </ion-item>
-
-            <ion-item>
-              <ion-label position="floating"
-                         color={ this.hasError && 'danger' }
-              >
-                Geburtstag
-              </ion-label>
-              <ion-datetime value="1990-02-19"
-                            name="birthday"
-                            color={ this.hasError && 'danger' }
-                            onChange={ event => this.handleChange(event) }
-              />
-            </ion-item>
-
-            <mapa-gender-select onGendered={ ({ detail }) => this.gender = detail }/>
-
-            <ion-button type="submit"
-                        color="primary"
-                        expand="block"
-                        disabled={ this.hasError || this.disabled }
-            >
-              Speichern
-            </ion-button>
-          </form>
-        </mapa-main>
+                Speichern
+              </ion-button>
+            </form>
+          </mapa-main>
+        </mapa-wrapper>
       </ion-content>
     );
   }
