@@ -35,7 +35,6 @@ export class Login implements ComponentInterface {
   async login() {
     this.hasError = !await login(this.username, this.password);
     if (!this.hasError) {
-      console.log('Navigate')
       history.pushState(null, null, '/profile/create');
     }
   }
@@ -43,7 +42,7 @@ export class Login implements ComponentInterface {
   render() {
     return (
       <ion-content class="ion-padding ion-text-center">
-        <mapa-header headline="Login">
+        <mapa-header headline="Log in">
           <mapa-icon-logo/>
         </mapa-header>
 
@@ -53,7 +52,7 @@ export class Login implements ComponentInterface {
               <ion-label position="floating"
                          color={ this.hasError && 'danger' }
               >
-                Username
+                Name
               </ion-label>
               <ion-input type="text"
                          name="username"
@@ -67,7 +66,7 @@ export class Login implements ComponentInterface {
               <ion-label position="floating"
                          color={ this.hasError && 'danger' }
               >
-                Password
+                Passwort
               </ion-label>
               <ion-input type="password"
                          name="password"
@@ -82,7 +81,7 @@ export class Login implements ComponentInterface {
                         expand="block"
                         disabled={ this.hasError || this.disabled }
             >
-              Login
+              Log in
             </ion-button>
           </form>
         </mapa-main>

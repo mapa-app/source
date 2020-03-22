@@ -23,6 +23,11 @@ export namespace Components {
     }
     interface MapaIcon {
     }
+    interface MapaIconGender {
+        "gender": "female" | "male";
+    }
+    interface MapaIconIdea {
+    }
     interface MapaIconLogo {
     }
     interface MapaKidsCreate {
@@ -94,6 +99,18 @@ declare global {
         prototype: HTMLMapaIconElement;
         new (): HTMLMapaIconElement;
     };
+    interface HTMLMapaIconGenderElement extends Components.MapaIconGender, HTMLStencilElement {
+    }
+    var HTMLMapaIconGenderElement: {
+        prototype: HTMLMapaIconGenderElement;
+        new (): HTMLMapaIconGenderElement;
+    };
+    interface HTMLMapaIconIdeaElement extends Components.MapaIconIdea, HTMLStencilElement {
+    }
+    var HTMLMapaIconIdeaElement: {
+        prototype: HTMLMapaIconIdeaElement;
+        new (): HTMLMapaIconIdeaElement;
+    };
     interface HTMLMapaIconLogoElement extends Components.MapaIconLogo, HTMLStencilElement {
     }
     var HTMLMapaIconLogoElement: {
@@ -163,6 +180,8 @@ declare global {
         "mapa-family-status": HTMLMapaFamilyStatusElement;
         "mapa-header": HTMLMapaHeaderElement;
         "mapa-icon": HTMLMapaIconElement;
+        "mapa-icon-gender": HTMLMapaIconGenderElement;
+        "mapa-icon-idea": HTMLMapaIconIdeaElement;
         "mapa-icon-logo": HTMLMapaIconLogoElement;
         "mapa-kids-create": HTMLMapaKidsCreateElement;
         "mapa-login": HTMLMapaLoginElement;
@@ -192,6 +211,11 @@ declare namespace LocalJSX {
         "headline"?: string;
     }
     interface MapaIcon {
+    }
+    interface MapaIconGender {
+        "gender"?: "female" | "male";
+    }
+    interface MapaIconIdea {
     }
     interface MapaIconLogo {
     }
@@ -223,6 +247,8 @@ declare namespace LocalJSX {
         "mapa-family-status": MapaFamilyStatus;
         "mapa-header": MapaHeader;
         "mapa-icon": MapaIcon;
+        "mapa-icon-gender": MapaIconGender;
+        "mapa-icon-idea": MapaIconIdea;
         "mapa-icon-logo": MapaIconLogo;
         "mapa-kids-create": MapaKidsCreate;
         "mapa-login": MapaLogin;
@@ -247,6 +273,8 @@ declare module "@stencil/core" {
             "mapa-family-status": LocalJSX.MapaFamilyStatus & JSXBase.HTMLAttributes<HTMLMapaFamilyStatusElement>;
             "mapa-header": LocalJSX.MapaHeader & JSXBase.HTMLAttributes<HTMLMapaHeaderElement>;
             "mapa-icon": LocalJSX.MapaIcon & JSXBase.HTMLAttributes<HTMLMapaIconElement>;
+            "mapa-icon-gender": LocalJSX.MapaIconGender & JSXBase.HTMLAttributes<HTMLMapaIconGenderElement>;
+            "mapa-icon-idea": LocalJSX.MapaIconIdea & JSXBase.HTMLAttributes<HTMLMapaIconIdeaElement>;
             "mapa-icon-logo": LocalJSX.MapaIconLogo & JSXBase.HTMLAttributes<HTMLMapaIconLogoElement>;
             "mapa-kids-create": LocalJSX.MapaKidsCreate & JSXBase.HTMLAttributes<HTMLMapaKidsCreateElement>;
             "mapa-login": LocalJSX.MapaLogin & JSXBase.HTMLAttributes<HTMLMapaLoginElement>;
