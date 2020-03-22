@@ -3,12 +3,12 @@ import { query } from '../utils/query.utils';
 
 export async function login(name: User['name'], pass: User['password']): Promise<boolean> {
   try {
-    await query(`
+    const { login } = await query(`
       query {
         login(name: "${ name }", password: "${ pass }")
       }
     `);
-    return Promise.resolve(true);
+    return Promise.resolve(login);
   } catch (error) {
     return Promise.resolve(false);
   }
