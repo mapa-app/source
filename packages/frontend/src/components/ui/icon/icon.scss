@@ -1,11 +1,13 @@
 @import '../../../styles/utils';
 
 :host {
-  color: var(--icon-color, currentColor);
+  box-sizing: border-box;
   display: block;
   padding: var(--icon-spacing, 0);
   height: var(--icon-height, auto);
   width: var(--icon-width, 100%);
+
+  color: var(--icon-color, currentColor);
   font-size: 0;
 }
 
