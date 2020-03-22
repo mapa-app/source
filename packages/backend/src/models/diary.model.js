@@ -3,10 +3,10 @@ import mongoose from 'mongoose';
 import {userModel} from './user.model'
 import {diaryEntryModel} from './diaryentry.model'
 
-export interface Diary extends mongoose.Document {
-  user: any;
-  diaryEntries: any;
-}
+// export interface Diary extends mongoose.Document {
+//   user: any;
+//   diaryEntries: any;
+// }
 
 const diarySchema = new mongoose.Schema({
   user: {
@@ -20,4 +20,4 @@ const diarySchema = new mongoose.Schema({
 
 
 
-export const diaryModel = mongoose.model<Diary>('diary', diarySchema);
+export const diaryModel = mongoose.model('diary', diarySchema);

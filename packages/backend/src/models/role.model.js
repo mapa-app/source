@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
-export interface Role extends mongoose.Document {
-  type: any;
-}
+// export interface Role extends mongoose.Document {
+//   type: any;
+// }
 const roleSchema = new mongoose.Schema({
   type: {
     type: String,
@@ -10,5 +10,5 @@ const roleSchema = new mongoose.Schema({
   }
 });
 
-export const roleModel = mongoose.model<Role>('role', roleSchema);
+export const roleModel = mongoose.model('role', roleSchema);
 

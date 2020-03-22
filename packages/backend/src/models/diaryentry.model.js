@@ -1,9 +1,10 @@
 import mongoose from 'mongoose';
 
-export interface DiaryEntry extends mongoose.Document {
-  text: any;
-  date: any;
-}
+// export interface DiaryEntry extends mongoose.Document {
+//   text: any;
+//   date: any;
+// }
+
 const diaryEntrySchema = new mongoose.Schema({
   text: {
     type: String,
@@ -16,4 +17,4 @@ const diaryEntrySchema = new mongoose.Schema({
 });
 
 
-export const diaryEntryModel = mongoose.model<DiaryEntry>('diaryEntry', diaryEntrySchema);
+export const diaryEntryModel = mongoose.model('diaryEntry', diaryEntrySchema);
