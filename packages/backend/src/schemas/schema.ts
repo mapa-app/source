@@ -1,4 +1,4 @@
-import { gql } from 'apollo-server';
+import { gql } from 'apollo-server-lambda';
 
 export const schema = gql`
   type User {
@@ -28,7 +28,7 @@ export const schema = gql`
   }
 
   type DiaryEntryPayload{
-    entries:[DiaryEntry]
+    entries: [DiaryEntry]
   }
 
 
@@ -37,13 +37,13 @@ export const schema = gql`
   }
 
   input RoleInput{
-    type:String!
+    type: String!
   }
 
   extend type Query {
     user(id: ID!): User!
     login(name: String!, password: String!): String!
-    diary(user:UserInput!):Diary!
+    diary(user:UserInput!): Diary!
   }
 
   extend type Mutation {

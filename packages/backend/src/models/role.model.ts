@@ -1,11 +1,13 @@
 import mongoose from 'mongoose';
+
 export interface Role extends mongoose.Document {
-  type: any;
+  type: 'mum' | 'dad' | 'child';
 }
+
 const roleSchema = new mongoose.Schema({
   type: {
     type: String,
-    enum : ['mum','dad',"child"],
+    enum: ['mum', 'dad', 'child'],
     default: 'child'
   }
 });

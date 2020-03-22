@@ -1,24 +1,25 @@
-import bcrypt from 'bcrypt';
 import mongoose from 'mongoose';
-import {roleModel} from './role.model'
+import { Role, roleModel } from './role.model';
 
 export interface User extends mongoose.Document {
-  type: any;
+  name: string;
+  password: string;
+  role: Role
 }
 
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
-    unique: true,
+    unique: true
   },
   password: {
     type: String,
-    required: true,
+    required: true
   },
-  role:{
-      type:roleModel.schema,
-      required: true,
+  role: {
+    type: roleModel.schema,
+    required: true
   }
 });
 
