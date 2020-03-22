@@ -1,8 +1,13 @@
 import mongoose from 'mongoose';
-
+import {childModel, Child} from './child.model'
+import {parentModel, Parent} from './parent.model'
 export interface DiaryEntry extends mongoose.Document {
-  text: any;
-  date: any;
+  text: String;
+  date: Date;
+  image:String;
+  children:[String];
+  parents:[String];
+
 }
 const diaryEntrySchema = new mongoose.Schema({
   text: {
@@ -12,6 +17,15 @@ const diaryEntrySchema = new mongoose.Schema({
   date:{
     type: Date,
     required: true
+  },
+  image:{
+    type:String
+  },
+  children:{
+    type:[String]
+  },
+  parents:{
+    type:[String]
   }
 });
 
