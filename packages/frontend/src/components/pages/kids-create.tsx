@@ -3,7 +3,7 @@ import { Component, ComponentInterface, h, State } from '@stencil/core';
 // import { openURL } from '../../utils/router.utils';
 
 @Component({
-  tag: 'mapa-kids-create'
+  tag: 'mapa-page-kids-create'
 })
 export class KidsCreate implements ComponentInterface {
 

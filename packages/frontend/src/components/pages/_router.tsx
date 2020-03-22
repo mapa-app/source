@@ -13,42 +13,42 @@ export class Router implements ComponentInterface {
         />
 
         <ion-route url="/login"
-                   component="mapa-login"
+                   component="mapa-page-login"
         />
         <ion-route url="/profile/create"
-                   component="mapa-profile-create"
+                   component="mapa-page-profile-create"
         />
         <ion-route url="/profile/:name"
-                   component="mapa-profile"
+                   component="mapa-page-profile"
         />
         <ion-route url="/family/status"
-                   component="mapa-family-status"
+                   component="mapa-page-family-status"
         />
         <ion-route url="/kids/create"
-                   component="mapa-kids-create"
+                   component="mapa-page-kids-create"
         />
 
         <ion-route url="/welcome"
-                   component="mapa-welcome"
+                   component="mapa-page-welcome"
         />
         <ion-route url="/dashboard"
-                   component="mapa-dashboard"
+                   component="mapa-page-dashboard"
         />
         <ion-route url="/explore"
-                   component="mapa-explore"
+                   component="mapa-page-explore"
         />
 
         <ion-route url="/calendar"
-                   component="mapa-calendar"
+                   component="mapa-page-calendar"
         />
         <ion-route url="/diary"
-                   component="mapa-diary"
+                   component="mapa-page-diary"
         />
         <ion-route url="/documents"
-                   component="mapa-documents"
+                   component="mapa-page-documents"
         />
         <ion-route url="/mediation"
-                   component="mapa-mediation"
+                   component="mapa-page-mediation"
         />
       </ion-router>
     );

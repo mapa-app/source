@@ -1,7 +1,7 @@
 import { Component, ComponentInterface, h } from '@stencil/core';
 
 @Component({
-  tag: 'mapa-welcome'
+  tag: 'mapa-page-welcome'
 })
 export class Welcome implements ComponentInterface {
 

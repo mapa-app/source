@@ -4,7 +4,7 @@ import { register } from '../../queries/register.query';
 import { openURL } from '../../utils/router.utils';
 
 @Component({
-  tag: 'mapa-profile-create'
+  tag: 'mapa-page-profile-create'
 })
 export class ProfileCreate implements ComponentInterface {
 

@@ -1,10 +1,10 @@
-import { Component, ComponentInterface, h, State } from '@stencil/core';
+import { Component, ComponentInterface, h, Listen, State } from '@stencil/core';
 
 import { login } from '../../queries/login.query';
 import { openURL } from '../../utils/router.utils';
 
 @Component({
-  tag: 'mapa-login'
+  tag: 'mapa-page-login'
 })
 export class Login implements ComponentInterface {
 
@@ -36,6 +36,13 @@ export class Login implements ComponentInterface {
     this.hasError = !await login(this.username, this.password);
     if (!this.hasError) {
       await openURL('/dashboard', event, 'forward');
+    }
+  }
+
+  @Listen('keydown')
+  async handleEnter(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
+      await this.handleSubmit(event);
     }
   }
 

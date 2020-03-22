@@ -1,7 +1,7 @@
 import { Component, ComponentInterface, h } from '@stencil/core';
 
 @Component({
-  tag: 'mapa-mediation'
+  tag: 'mapa-page-mediation'
 })
 export class Mediation implements ComponentInterface {
 
