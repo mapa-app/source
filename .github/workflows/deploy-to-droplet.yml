@@ -29,5 +29,5 @@ jobs:
           git clone git@github.com:mapa-app/source.git -b master ${{ env.DEPLOY_DIRECTORY }}
           docker-compose -f ./${{ env.DEPLOY_DIRECTORY }}/packages/backend/docker-compose.yml pull
           docker-compose -f ./${{ env.DEPLOY_DIRECTORY }}/packages/backend/docker-compose.yml build
-          docker-compose -f ./${{ env.DEPLOY_DIRECTORY }}/packages/backend/docker-compose.yml up
+          docker-compose -f ./${{ env.DEPLOY_DIRECTORY }}/packages/backend/docker-compose.yml up -d
           
