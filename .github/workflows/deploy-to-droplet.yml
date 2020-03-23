@@ -1,0 +1,33 @@
+name: Deploy to Droplet
+
+on:
+  push:
+    branches:
+      - master
+      - feature/deploy-to-droplet-wip
+    paths:
+      - 'packages/backend/**'
+      - '.github/workflows/deploy-to-droplet.yml'
+
+env:
+  DEPLOY_DIRECTORY: mapa-app
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: clone and deploy
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.DROPLET_IP }}
+        username: ${{ secrets.DROPLET_USERNAME }}
+        key: ${{ secrets.DROPLET_KEY }}
+        script: |
+          docker-compose -f ./${{ env.DEPLOY_DIRECTORY }}/packages/backend/docker-compose.yml down
+          rm -rf ${{ env.DEPLOY_DIRECTORY }}
+          git clone git@github.com:mapa-app/source.git -b master ${{ env.DEPLOY_DIRECTORY }}
+          docker-compose -f ./${{ env.DEPLOY_DIRECTORY }}/packages/backend/docker-compose.yml pull
+          docker-compose -f ./${{ env.DEPLOY_DIRECTORY }}/packages/backend/docker-compose.yml build
+          docker-compose -f ./${{ env.DEPLOY_DIRECTORY }}/packages/backend/docker-compose.yml up -d
+          
