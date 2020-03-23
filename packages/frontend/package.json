@@ -1,6 +1,6 @@
 {
   "name": "@mapa/frontend",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "files": [
     "www/"
   ],
@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@ionic/core": "5.0.5",
-    "@mapa/backend": "*",
+    "@mapa/backend": "^0.1.0",
     "@stencil/core": "1.11.0",
     "@stencil/postcss": "1.0.1",
     "@stencil/sass": "1.1.1",
