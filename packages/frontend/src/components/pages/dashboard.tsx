@@ -1,29 +1,28 @@
-import { Component, ComponentInterface, h } from '@stencil/core';
+import { Component, ComponentInterface, h, State } from '@stencil/core';
+import { Parent } from '@mapa/backend';
+import { getMe } from '../../utils/auth.utils';
 
 @Component({
   tag: 'mapa-page-dashboard'
 })
 export class Dashboard implements ComponentInterface {
 
+  @State()
+  me: Parent;
+
+  async componentWillLoad() {
+    this.me = await getMe();
+  }
+
   render() {
     return (
       <ion-content class="ion-padding ion-text-center">
         <mapa-wrapper>
-          <mapa-header headline="Dashboard">
-            <mapa-icon-logo/>
+          <mapa-header headline={ `Willkommen, ${ this.me.name }` }>
           </mapa-header>
 
           <mapa-main>
-            <p>
-              Welcome Anna!
-            </p>
-            <p>
-              We will help you to manage your everyday family life.
-              You will have a helpful overview of Mike’s and Sara’s life.
-              And if you need help, our professional team is here for you.
-            </p>
-
-            <pre>Daily tip</pre>
+            <pre>Deine heutigen Kalendereinträge</pre>
 
             <ion-button href="/explore"
                         color="primary"
