@@ -1,9 +1,5 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Deploy to Droplet
 
-# Controls when the action will run. Triggers the workflow on push or pull request 
-# events but only for the master branch
 on:
   push:
     branches:
@@ -13,22 +9,23 @@ on:
       - 'packages/backend/**'
       - '.github/workflows/deploy-to-droplet.yml'
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+env:
+  DEPLOY_DIRECTORY: mapa-app-${{ github.sha }}
+
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  deploy:
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-
-    - name: Clone
+    - name: clone and deploy
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.DROPLET_IP }}
         username: ${{ secrets.DROPLET_USERNAME }}
         key: ${{ secrets.DROPLET_KEY }}
         script: |
-          git clone git@github.com:mapa-app/source.git -b master mapa-app-${{ github.sha }}
+          git clone git@github.com:mapa-app/source.git -b master ${{ env.DEPLOY_DIRECTORY }}
+          cd ${{ env.DEPLOY_DIRECTORY }}
+          docker-compose pull
+          docker-compose build
+        
