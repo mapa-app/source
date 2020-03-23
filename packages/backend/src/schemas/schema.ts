@@ -2,7 +2,6 @@ import { gql } from 'apollo-server';
 
 export const schema = gql`
 
-
   enum Gender {
     MALE
     FEMALE
@@ -17,17 +16,16 @@ export const schema = gql`
   type Child {
     id: ID!
     name: String!
-    birthdate:String!
-    gender:Gender!
-    color:String!
-    image:String!
+    birthdate: String!
+    gender: Gender!
+    color: String!
+    image: String
   }
-
 
   type Parent {
     id: ID!
     name: String!
-    color:String!
+    color: String!
   }
 
   type Diary {
@@ -38,37 +36,37 @@ export const schema = gql`
   type DiaryEntry {
     text: String!
     date: String!
-    parents:[Parent!]
-    children:[Child!]
+    parents: [Parent!]
+    children: [Child!]
   }
 
   input DiaryEntryInput {
     text: String!
     date: String!
-    image:String!,
-    parents:[String!]
-    children:[String!]
+    image: String!,
+    parents: [String!]
+    children: [String!]
   }
 
   type Family{
-    name:String!
-    state:FamilyState!
-    parents:[String!]
-    children:[String!]
+    name: String!
+    state: FamilyState!
+    parents: [String!]
+    children: [String!]
   }
 
   extend type Query {
-    login(name: String!, password: String!): Parent!
-    diary(userID:ID!):Diary!
-    family(name:String!):Family!
-    myFamily(userID:ID!):Family!
+    login(name: String!, password: String!): Parent
+    diary(userID:ID!): Diary!
+    family(name:String!): Family!
+    myFamily(userID:ID!): Family!
   }
 
   extend type Mutation {
-    createChild(name: String!,birthdate:String!,gender:Gender!): Child!
-    createParent(name: String!, password: String!,color:String!):Parent!
-    createFamily(name:String!,state:FamilyState!):Family!
-    addDiaryEntry(userID:ID!,entry:DiaryEntryInput!): Boolean!
-    addFamilyMember(userID:ID!,familyID:ID!):Family!
+    createChild(name: String!, birthdate: String!, color: String!, gender: Gender!): Child
+    createParent(name: String!, password: String!, color: String!): Parent
+    createFamily(name: String!, state: FamilyState!): Family
+    addDiaryEntry(userID: ID!, entry: DiaryEntryInput!): Boolean!
+    addFamilyMember(userID: ID!, familyID: ID!): Family
   }
 `;

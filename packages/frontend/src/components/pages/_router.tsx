@@ -27,6 +27,12 @@ export class Router implements ComponentInterface {
         <ion-route url="/kids/create"
                    component="mapa-page-kids-create"
         />
+        <ion-route url="/custody"
+                   component="mapa-page-custody"
+        />
+        <ion-route url="/custody/template"
+                   component="mapa-page-custody-template"
+        />
 
         <ion-route url="/welcome"
                    component="mapa-page-welcome"

@@ -17,17 +17,20 @@ export class KidsCreate implements ComponentInterface {
   birthday = '';
 
   @State()
+  color = '';
+
+  @State()
   gender: 'FEMALE' | 'MALE';
 
   get disabled(): boolean {
     return this.name === ''
       || this.birthday === ''
+      || this.color === ''
       || this.gender === undefined;
   }
 
   async handleChange(event: Event) {
     const { name, value } = event.target as HTMLInputElement;
-    console.log(typeof value, value);
     if (name in this) {
       this[name] = value;
       this.hasError = false;
@@ -37,9 +40,9 @@ export class KidsCreate implements ComponentInterface {
   async handleSubmit(event: Event) {
     event.preventDefault();
 
-    this.hasError = !await createChild(this.name, new Date(this.birthday), this.gender);
+    this.hasError = !await createChild(this.name, new Date(this.birthday), this.color, this.gender);
     if (!this.hasError) {
-      await openURL('/family/status', event, 'forward');
+      await openURL('/custody', event, 'forward');
     }
   }
 
@@ -88,6 +91,8 @@ export class KidsCreate implements ComponentInterface {
               </ion-item>
 
               <mapa-gender-select onGendered={ ({ detail }) => this.gender = detail }/>
+
+              <mapa-color-picker onColored={ ({ detail }) => this.color = detail }/>
 
               <ion-button type="submit"
                           color="primary"

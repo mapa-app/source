@@ -51,6 +51,8 @@ export namespace Components {
     }
     interface MapaPageCalendar {
     }
+    interface MapaPageCustody {
+    }
     interface MapaPageDashboard {
     }
     interface MapaPageDiary {
@@ -174,6 +176,12 @@ declare global {
         prototype: HTMLMapaPageCalendarElement;
         new (): HTMLMapaPageCalendarElement;
     };
+    interface HTMLMapaPageCustodyElement extends Components.MapaPageCustody, HTMLStencilElement {
+    }
+    var HTMLMapaPageCustodyElement: {
+        prototype: HTMLMapaPageCustodyElement;
+        new (): HTMLMapaPageCustodyElement;
+    };
     interface HTMLMapaPageDashboardElement extends Components.MapaPageDashboard, HTMLStencilElement {
     }
     var HTMLMapaPageDashboardElement: {
@@ -274,6 +282,7 @@ declare global {
         "mapa-icon-logo": HTMLMapaIconLogoElement;
         "mapa-main": HTMLMapaMainElement;
         "mapa-page-calendar": HTMLMapaPageCalendarElement;
+        "mapa-page-custody": HTMLMapaPageCustodyElement;
         "mapa-page-dashboard": HTMLMapaPageDashboardElement;
         "mapa-page-diary": HTMLMapaPageDiaryElement;
         "mapa-page-documents": HTMLMapaPageDocumentsElement;
@@ -338,6 +347,8 @@ declare namespace LocalJSX {
     }
     interface MapaPageCalendar {
     }
+    interface MapaPageCustody {
+    }
     interface MapaPageDashboard {
     }
     interface MapaPageDiary {
@@ -383,6 +394,7 @@ declare namespace LocalJSX {
         "mapa-icon-logo": MapaIconLogo;
         "mapa-main": MapaMain;
         "mapa-page-calendar": MapaPageCalendar;
+        "mapa-page-custody": MapaPageCustody;
         "mapa-page-dashboard": MapaPageDashboard;
         "mapa-page-diary": MapaPageDiary;
         "mapa-page-documents": MapaPageDocuments;
@@ -418,6 +430,7 @@ declare module "@stencil/core" {
             "mapa-icon-logo": LocalJSX.MapaIconLogo & JSXBase.HTMLAttributes<HTMLMapaIconLogoElement>;
             "mapa-main": LocalJSX.MapaMain & JSXBase.HTMLAttributes<HTMLMapaMainElement>;
             "mapa-page-calendar": LocalJSX.MapaPageCalendar & JSXBase.HTMLAttributes<HTMLMapaPageCalendarElement>;
+            "mapa-page-custody": LocalJSX.MapaPageCustody & JSXBase.HTMLAttributes<HTMLMapaPageCustodyElement>;
             "mapa-page-dashboard": LocalJSX.MapaPageDashboard & JSXBase.HTMLAttributes<HTMLMapaPageDashboardElement>;
             "mapa-page-diary": LocalJSX.MapaPageDiary & JSXBase.HTMLAttributes<HTMLMapaPageDiaryElement>;
             "mapa-page-documents": LocalJSX.MapaPageDocuments & JSXBase.HTMLAttributes<HTMLMapaPageDocumentsElement>;

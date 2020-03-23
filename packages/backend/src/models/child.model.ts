@@ -4,34 +4,30 @@ export interface Child extends mongoose.Document {
   name: string;
   birthdate: Date;
   gender: 'FEMALE' | 'MALE';
-  image: string;
   color: string;
-  password: string;
+  image?: string;
 }
 
 const childSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true,
-    unique: true
+    required: true
   },
   birthdate: {
-    type: Date
+    type: Date,
+    required: true
   },
   gender: {
     type: String,
-    enum: ['FEMALE', 'MALE']
-  },
-  image: {
-    type: String
+    enum: ['FEMALE', 'MALE'],
+    required: true
   },
   color: {
     type: String,
     required: true
   },
-  password: {
-    type: String,
-    required: true
+  image: {
+    type: String
   }
 });
 
