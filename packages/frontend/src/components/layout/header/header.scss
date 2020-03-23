@@ -1,0 +1,18 @@
+@import '../../../styles/utils';
+
+:host {
+  display: block;
+}
+
+::slotted(*) {
+  display: block;
+  margin: 0 auto;
+  padding: 15vw 0;
+  width: 30vw;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: var(--font-weight-regular);
+  line-height: 1.5;
+}

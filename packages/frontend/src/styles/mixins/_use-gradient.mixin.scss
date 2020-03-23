@@ -1,0 +1,5 @@
+@mixin useGradient() {
+  &.use-gradient {
+    --ion-background-color: linear-gradient(155.58deg, var(--color-orange) 31.33%, var(--color-orange-light) 100%), var(--color-white);
+  }
+}

@@ -1,20 +1,14 @@
-import { Component, h } from '@stencil/core';
+import { Component, ComponentInterface, h } from '@stencil/core';
 
 @Component({
-  tag: 'mapa-root',
-  styleUrl: 'root.scss'
+  tag: 'mapa-root'
 })
-export class Root {
+export class Root implements ComponentInterface {
 
   render() {
-    return (
-      <ion-app>
-        <ion-router useHash={false}>
-          <ion-route url="/" component="mapa-home" />
-          <ion-route url="/profile/:name" component="mapa-profile" />
-        </ion-router>
-        <ion-nav />
-      </ion-app>
-    );
+    return [
+      <mapa-router/>,
+      <ion-nav/>
+    ];
   }
 }

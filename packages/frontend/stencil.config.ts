@@ -19,11 +19,14 @@ export const config: Config = {
       baseUrl: 'https://frontend.mapa.local/',
       copy: [
         {
+          src: '_redirects'
+        },
+        {
           src: 'config.json'
         },
         {
-          src: '../node_modules/typeface-ubuntu/files',
-          dest: 'assets/fonts/ubuntu'
+          src: '../node_modules/typeface-baloo-bhai/files',
+          dest: 'assets/fonts/baloo-bhai'
         }
       ],
       // comment the following line to disable service workers in production

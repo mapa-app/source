@@ -1,0 +1,36 @@
+@import '../../../styles/utils';
+
+:host {
+  --diary-offset: calc(var(--base-size) * 2);
+
+  display: block;
+  height: 100%;
+  position: relative;
+}
+
+::slotted(mapa-diary-entry) {
+  --diary-entry-offset: calc((var(--base-size) + 5.4rem) * var(--diary-entry-index));
+
+  @include transition(transform top);
+  @include position(absolute, 0 0 auto);
+  top: calc(var(--diary-offset) + var(--diary-entry-offset));
+  transform: translateY(0);
+  min-height: calc(100% - var(--diary-offset) * 2);
+  z-index: calc(var(--diary-entry-index) + 1);
+}
+
+::slotted(mapa-diary-entry.active) {
+  top: 0;
+}
+
+:host(.has-active) {
+  ::slotted(mapa-diary-entry:not(.active)) {
+    top: calc(100% - var(--diary-offset) * 1.5);
+  }
+}
+
+//@media (pointer: fine) {
+//  ::slotted(mapa-diary-entry:not(:last-child):hover) {
+//    transform: translateY(calc(var(--base-size) * -2));
+//  }
+//}

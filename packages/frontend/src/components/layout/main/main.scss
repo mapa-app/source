@@ -1,0 +1,9 @@
+@import '../../../styles/utils';
+
+:host {
+  flex: 1 0 auto;
+}
+
+::slotted(*) {
+  width: 100%;
+}

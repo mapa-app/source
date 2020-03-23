@@ -1,0 +1,17 @@
+@import '../../../styles/utils';
+
+:host {
+  box-sizing: border-box;
+  display: block;
+  padding: var(--icon-spacing, 0);
+  height: var(--icon-height, auto);
+  width: var(--icon-width, 100%);
+
+  color: var(--icon-color, currentColor);
+  font-size: 0;
+}
+
+::slotted(svg) {
+  height: 100%;
+  width: 100%;
+}
