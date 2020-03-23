@@ -1,11 +1,11 @@
 import { Child } from '@mapa/backend';
 import { query } from '../utils/query.utils';
 
-export async function createChild(name: Child['name'], birthdate: Child['birthdate'], gender: Child['gender']): Promise<Child | false> {
+export async function createChild(name: Child['name'], birthdate: Child['birthdate'], color: Child['color'], gender: Child['gender']): Promise<Child | false> {
   try {
     const result = await query(`
       mutation {
-        createChild(name: "${ name }", birthdate: "${ birthdate }", gender: ${ gender }) {
+        createChild(name: "${ name }", birthdate: "${ birthdate }", color: "${ color }", gender: ${ gender }) {
           id
           name
           birthdate
