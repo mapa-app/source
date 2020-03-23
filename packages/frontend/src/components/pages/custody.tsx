@@ -14,7 +14,7 @@ export class Custody implements ComponentInterface {
           </mapa-header>
 
           <mapa-main>
-            <ion-button href="/custody-template"
+            <ion-button href="/custody/template"
                         color="primary"
                         expand="block"
             >
