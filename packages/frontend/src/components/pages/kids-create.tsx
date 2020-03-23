@@ -42,7 +42,7 @@ export class KidsCreate implements ComponentInterface {
 
     this.hasError = !await createChild(this.name, new Date(this.birthday), this.color, this.gender);
     if (!this.hasError) {
-      await openURL('/family/status', event, 'forward');
+      await openURL('/dashboard', event, 'forward');
     }
   }
 
