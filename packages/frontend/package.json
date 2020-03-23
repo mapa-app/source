@@ -8,6 +8,7 @@
     "build:schema": "typescript-json-schema --required --out src/config.schema.json src/config.d.ts Config",
     "build:stencil": "stencil build",
     "build": "run-s build:*",
+    "build:ci": "npm run build",
     "start:schema": "nodemon --watch src/config.d.ts --exec npm run build:schema",
     "start:stencil": "stencil build --prod --watch --serve",
     "start": "run-p start:*"

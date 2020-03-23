@@ -3,8 +3,8 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-RUN npm install
-RUN npm run build
+RUN npm ci
+RUN npm run build:ci
 
 EXPOSE 4000
 CMD [ "npm", "start" ]
