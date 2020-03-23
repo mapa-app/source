@@ -1,7 +1,7 @@
 {
   "$schema": "config.schema.json",
   "urls": {
-    "api": "http://104.248.102.90:4000/graphql"
+    "api": "/api/graphql"
   },
   "console": {},
   "defaults": {
