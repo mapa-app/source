@@ -31,4 +31,4 @@ jobs:
         username: ${{ secrets.DROPLET_USERNAME }}
         key: ${{ secrets.DROPLET_KEY }}
         script: |
-          git clone git@github.com:mapa-app/source.git -b master mapa-app-${{ $github.sha }}
+          git clone git@github.com:mapa-app/source.git -b master mapa-app-${{ github.sha }}
