@@ -24,11 +24,11 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
 
-    - name: multiple command
+    - name: Clone
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.DROPLET_IP }}
         username: ${{ secrets.DROPLET_USERNAME }}
         key: ${{ secrets.DROPLET_KEY }}
         script: |
-          whoami
+          git clone git@github.com:mapa-app/source.git -b master mapa-app-${{ $github.sha }}
