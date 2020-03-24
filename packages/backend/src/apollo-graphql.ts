@@ -1,3 +1,4 @@
+import dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
 import { ApolloServer } from 'apollo-server-express';
@@ -11,6 +12,9 @@ import { childResolver } from './resolvers/child.resolver';
 import { diaryResolver } from './resolvers/diary.resolver';
 import { diaryEntryResolver } from './resolvers/diaryEntry.resolver';
 import { familyResolver } from './resolvers/family.resolver';
+
+dotenv.config();
+const { MONGO_HOST, MONGO_USER, MONGO_PASS } = process.env;
 
 const app = express();
 app.use(cors());
@@ -34,15 +38,15 @@ const server = new ApolloServer({
 server.applyMiddleware({ app, path: '/graphql' });
 
 app.listen(4000, async () => {
-  connect('mongodb://104.248.102.90:27017', {
-    // TODO: use credentials from env vars!
-    user: 'mapa',
-    pass: 'i9-Af4xeq57C#34',
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  }).then(c => {
-    console.log('success')
-  }).catch(e => {
-    console.log(e);
-  });
+  try {
+    await connect(MONGO_HOST, {
+      user: MONGO_USER,
+      pass: MONGO_PASS,
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
+    console.log(`Connected to database ${ MONGO_HOST }`);
+  } catch (error) {
+    console.error(error);
+  }
 });

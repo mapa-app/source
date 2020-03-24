@@ -11,6 +11,7 @@
 ## Prepare
 1. Use correct node version as defined in `.nvmrc`. The [node version manager](https://github.com/nvm-sh/nvm) is highly recommended.
 1. Install dependencies with `npm install`
+1. Copy the `.env.example` file in `packages/backend` to `.env` and enter the database credentials
 
 ## Build
 Simply run `npm run build`.
