@@ -6,20 +6,12 @@ export const schema = gql`
     MALE
     FEMALE
   }
+
   enum FamilyState{
     TOGETHER
     DIVORCED
     PATCHED
     SINGLE
-  }
-
-  type Child {
-    id: ID!
-    name: String!
-    birthdate: String!
-    gender: Gender!
-    color: String!
-    image: String
   }
 
   type Parent {
@@ -28,45 +20,52 @@ export const schema = gql`
     color: String!
   }
 
-  type Diary {
-    family: Family!
-    diaryEntries: [DiaryEntry!]
+  type Child {
+    id: ID!
+    name: String!
+    birthdate: String!
+    color: String!
+    gender: Gender!
+    image: String
+  }
+
+  type Family {
+    id: ID!
+    state: FamilyState!
+    parents: [Parent!]!
+    children: [Child]!
+    diary: [DiaryEntry]!
   }
 
   type DiaryEntry {
-    text: String!
+    id: ID!
+    title: String!
     date: String!
-    parents: [Parent!]
-    children: [Child!]
+    text: String
+    parents: [Parent!]!
+    children: [Child]!
   }
 
   input DiaryEntryInput {
     text: String!
     date: String!
     image: String!,
-    parents: [String!]
-    children: [String!]
-  }
-
-  type Family{
-    name: String!
-    state: FamilyState!
-    parents: [String!]
-    children: [String!]
+    parents: [ID]!
+    children: [ID]!
   }
 
   extend type Query {
     login(name: String!, password: String!): Parent
-    diary(userID:ID!): Diary!
-    family(name:String!): Family!
-    myFamily(userID:ID!): Family!
+    family(userID: ID!): Family!
   }
 
   extend type Mutation {
     createChild(name: String!, birthdate: String!, color: String!, gender: Gender!): Child
     createParent(name: String!, password: String!, color: String!): Parent
-    createFamily(name: String!, state: FamilyState!): Family
-    addDiaryEntry(userID: ID!, entry: DiaryEntryInput!): Boolean!
-    addFamilyMember(userID: ID!, familyID: ID!): Family
+
+    createFamily(state: FamilyState!): Family
+    addFamilyMember(memberID: ID!, familyID: ID!): Boolean!
+
+    addDiaryEntry(memberID: ID!, entry: DiaryEntryInput!): Boolean!
   }
 `;
