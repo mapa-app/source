@@ -1,30 +1,30 @@
-import mongoose from 'mongoose';
+import { Document, Schema, model, Types } from 'mongoose';
 
-export interface Family extends mongoose.Document {
-  name: string;
+export interface Family extends Document {
   state: 'TOGETHER' | 'DIVORCED' | 'PATCHED' | 'SINGLE';
-  children: string[];
-  parents: string[];
+  children: Types.ObjectId[];
+  parents: Types.ObjectId[];
+  diary: Types.ObjectId[];
 }
 
-const familySchema = new mongoose.Schema({
-  name: {
-    type: String,
-    unique: true,
-    required: true
-  },
+const FamilySchema = new Schema({
   state: {
-    type: String,
+    type: Schema.Types.String,
     enum: ['TOGETHER', 'DIVORCED', 'PATCHED', 'SINGLE'],
     required: true
   },
   children: {
-    type: [String]
+    type: [Schema.Types.ObjectId],
+    required: true
   },
   parents: {
-    type: [String]
+    type: [Schema.Types.ObjectId],
+    required: true
+  },
+  diary: {
+    type: [Schema.Types.ObjectId],
+    required: true
   }
 });
 
-
-export const familyModel = mongoose.model<Family>('family', familySchema);
+export const FamilyModel = model<Family>('family', FamilySchema);

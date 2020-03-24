@@ -33,6 +33,8 @@ export namespace Components {
     }
     interface MapaIcon {
     }
+    interface MapaIconCustody {
+    }
     interface MapaIconFamily {
         "status": "TOGETHER" | "DIVORCED" | "PATCHED" | "SINGLE";
     }
@@ -52,6 +54,8 @@ export namespace Components {
     interface MapaPageCalendar {
     }
     interface MapaPageCustody {
+    }
+    interface MapaPageCustodyTemplate {
     }
     interface MapaPageDashboard {
     }
@@ -128,6 +132,12 @@ declare global {
         prototype: HTMLMapaIconElement;
         new (): HTMLMapaIconElement;
     };
+    interface HTMLMapaIconCustodyElement extends Components.MapaIconCustody, HTMLStencilElement {
+    }
+    var HTMLMapaIconCustodyElement: {
+        prototype: HTMLMapaIconCustodyElement;
+        new (): HTMLMapaIconCustodyElement;
+    };
     interface HTMLMapaIconFamilyElement extends Components.MapaIconFamily, HTMLStencilElement {
     }
     var HTMLMapaIconFamilyElement: {
@@ -181,6 +191,12 @@ declare global {
     var HTMLMapaPageCustodyElement: {
         prototype: HTMLMapaPageCustodyElement;
         new (): HTMLMapaPageCustodyElement;
+    };
+    interface HTMLMapaPageCustodyTemplateElement extends Components.MapaPageCustodyTemplate, HTMLStencilElement {
+    }
+    var HTMLMapaPageCustodyTemplateElement: {
+        prototype: HTMLMapaPageCustodyTemplateElement;
+        new (): HTMLMapaPageCustodyTemplateElement;
     };
     interface HTMLMapaPageDashboardElement extends Components.MapaPageDashboard, HTMLStencilElement {
     }
@@ -274,6 +290,7 @@ declare global {
         "mapa-gender-select": HTMLMapaGenderSelectElement;
         "mapa-header": HTMLMapaHeaderElement;
         "mapa-icon": HTMLMapaIconElement;
+        "mapa-icon-custody": HTMLMapaIconCustodyElement;
         "mapa-icon-family": HTMLMapaIconFamilyElement;
         "mapa-icon-gender": HTMLMapaIconGenderElement;
         "mapa-icon-home": HTMLMapaIconHomeElement;
@@ -283,6 +300,7 @@ declare global {
         "mapa-main": HTMLMapaMainElement;
         "mapa-page-calendar": HTMLMapaPageCalendarElement;
         "mapa-page-custody": HTMLMapaPageCustodyElement;
+        "mapa-page-custody-template": HTMLMapaPageCustodyTemplateElement;
         "mapa-page-dashboard": HTMLMapaPageDashboardElement;
         "mapa-page-diary": HTMLMapaPageDiaryElement;
         "mapa-page-documents": HTMLMapaPageDocumentsElement;
@@ -329,6 +347,8 @@ declare namespace LocalJSX {
     }
     interface MapaIcon {
     }
+    interface MapaIconCustody {
+    }
     interface MapaIconFamily {
         "status"?: "TOGETHER" | "DIVORCED" | "PATCHED" | "SINGLE";
     }
@@ -348,6 +368,8 @@ declare namespace LocalJSX {
     interface MapaPageCalendar {
     }
     interface MapaPageCustody {
+    }
+    interface MapaPageCustodyTemplate {
     }
     interface MapaPageDashboard {
     }
@@ -386,6 +408,7 @@ declare namespace LocalJSX {
         "mapa-gender-select": MapaGenderSelect;
         "mapa-header": MapaHeader;
         "mapa-icon": MapaIcon;
+        "mapa-icon-custody": MapaIconCustody;
         "mapa-icon-family": MapaIconFamily;
         "mapa-icon-gender": MapaIconGender;
         "mapa-icon-home": MapaIconHome;
@@ -395,6 +418,7 @@ declare namespace LocalJSX {
         "mapa-main": MapaMain;
         "mapa-page-calendar": MapaPageCalendar;
         "mapa-page-custody": MapaPageCustody;
+        "mapa-page-custody-template": MapaPageCustodyTemplate;
         "mapa-page-dashboard": MapaPageDashboard;
         "mapa-page-diary": MapaPageDiary;
         "mapa-page-documents": MapaPageDocuments;
@@ -422,6 +446,7 @@ declare module "@stencil/core" {
             "mapa-gender-select": LocalJSX.MapaGenderSelect & JSXBase.HTMLAttributes<HTMLMapaGenderSelectElement>;
             "mapa-header": LocalJSX.MapaHeader & JSXBase.HTMLAttributes<HTMLMapaHeaderElement>;
             "mapa-icon": LocalJSX.MapaIcon & JSXBase.HTMLAttributes<HTMLMapaIconElement>;
+            "mapa-icon-custody": LocalJSX.MapaIconCustody & JSXBase.HTMLAttributes<HTMLMapaIconCustodyElement>;
             "mapa-icon-family": LocalJSX.MapaIconFamily & JSXBase.HTMLAttributes<HTMLMapaIconFamilyElement>;
             "mapa-icon-gender": LocalJSX.MapaIconGender & JSXBase.HTMLAttributes<HTMLMapaIconGenderElement>;
             "mapa-icon-home": LocalJSX.MapaIconHome & JSXBase.HTMLAttributes<HTMLMapaIconHomeElement>;
@@ -431,6 +456,7 @@ declare module "@stencil/core" {
             "mapa-main": LocalJSX.MapaMain & JSXBase.HTMLAttributes<HTMLMapaMainElement>;
             "mapa-page-calendar": LocalJSX.MapaPageCalendar & JSXBase.HTMLAttributes<HTMLMapaPageCalendarElement>;
             "mapa-page-custody": LocalJSX.MapaPageCustody & JSXBase.HTMLAttributes<HTMLMapaPageCustodyElement>;
+            "mapa-page-custody-template": LocalJSX.MapaPageCustodyTemplate & JSXBase.HTMLAttributes<HTMLMapaPageCustodyTemplateElement>;
             "mapa-page-dashboard": LocalJSX.MapaPageDashboard & JSXBase.HTMLAttributes<HTMLMapaPageDashboardElement>;
             "mapa-page-diary": LocalJSX.MapaPageDiary & JSXBase.HTMLAttributes<HTMLMapaPageDiaryElement>;
             "mapa-page-documents": LocalJSX.MapaPageDocuments & JSXBase.HTMLAttributes<HTMLMapaPageDocumentsElement>;

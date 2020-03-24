@@ -1,6 +1,6 @@
-import mongoose from 'mongoose';
+import { Document, Schema, model } from 'mongoose';
 
-export interface Child extends mongoose.Document {
+export interface Child extends Document {
   name: string;
   birthdate: Date;
   gender: 'FEMALE' | 'MALE';
@@ -8,31 +8,27 @@ export interface Child extends mongoose.Document {
   image?: string;
 }
 
-const childSchema = new mongoose.Schema({
+const ChildSchema = new Schema({
   name: {
-    type: String,
+    type: Schema.Types.String,
     required: true
   },
   birthdate: {
-    type: Date,
+    type: Schema.Types.Date,
     required: true
   },
   gender: {
-    type: String,
+    type: Schema.Types.String,
     enum: ['FEMALE', 'MALE'],
     required: true
   },
   color: {
-    type: String,
+    type: Schema.Types.String,
     required: true
   },
   image: {
-    type: String
+    type: Schema.Types.String
   }
 });
 
-export function instanceOfChild(object: any): object is Child {
-  return 'gender' in object;
-}
-
-export const childModel = mongoose.model<Child>('child', childSchema);
+export const ChildModel = model<Child>('child', ChildSchema);

@@ -4,5 +4,8 @@
     "declaration": true,
     "declarationDir": "types",
     "emitDeclarationOnly": true
-  }
+  },
+  "exclude": [
+    "types"
+  ]
 }

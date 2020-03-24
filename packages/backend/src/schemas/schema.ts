@@ -32,9 +32,9 @@ export const schema = gql`
   type Family {
     id: ID!
     state: FamilyState!
-    parents: [Parent!]!
-    children: [Child]!
-    diary: [DiaryEntry]!
+    parents: [ID!]!
+    children: [ID]!
+    diary: [ID]!
   }
 
   type DiaryEntry {
@@ -42,8 +42,8 @@ export const schema = gql`
     title: String!
     date: String!
     text: String
-    parents: [Parent!]!
-    children: [Child]!
+    parents: [ID!]!
+    children: [ID]!
   }
 
   input DiaryEntryInput {
@@ -56,16 +56,16 @@ export const schema = gql`
 
   extend type Query {
     login(name: String!, password: String!): Parent
-    family(userID: ID!): Family!
+    familyOfParent(parentID: ID!): Family!
+    familyOfChild(childID: ID!): Family!
   }
 
   extend type Mutation {
     createChild(name: String!, birthdate: String!, color: String!, gender: Gender!): Child
     createParent(name: String!, password: String!, color: String!): Parent
-
     createFamily(state: FamilyState!): Family
-    addFamilyMember(memberID: ID!, familyID: ID!): Boolean!
-
-    addDiaryEntry(memberID: ID!, entry: DiaryEntryInput!): Boolean!
+    addChild(familyID: ID!, childID: ID!): Boolean!
+    addParent(familyID: ID!, parentID: ID!): Boolean!
+    addDiaryEntry(familyID: ID!, entry: DiaryEntryInput!): Boolean!
   }
 `;

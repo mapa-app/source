@@ -1,25 +1,25 @@
-import mongoose from 'mongoose';
+import { Document, Schema, model } from 'mongoose';
 
-export interface Parent extends mongoose.Document {
+export interface Parent extends Document {
   name: string;
   password: string;
   color: string;
 }
 
-const parentSchema = new mongoose.Schema({
+const ParentSchema = new Schema({
   name: {
-    type: String,
+    type: Schema.Types.String,
     required: true,
     unique: true
   },
   color: {
-    type: String,
+    type: Schema.Types.String,
     required: true
   },
   password: {
-    type: String,
+    type: Schema.Types.String,
     required: true
   }
 });
 
-export const parentModel = mongoose.model<Parent>('parent', parentSchema);
+export const ParentModel = model<Parent>('parent', ParentSchema);
