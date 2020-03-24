@@ -1,17 +1,19 @@
 import { getConfig } from './config.utils';
 
 interface GraphQLResponse<T> {
-  data: T | null;
+  data: {
+    result: T | null
+  } | null;
   errors?: Error[];
 }
 
-export async function query<T>(query: string): Promise<T> {
+export async function query<T>(query: string, operation: 'query' | 'mutation' = 'query'): Promise<T | null> {
   try {
     const { urls: { api } } = await getConfig();
     const response = await fetch(api, {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ query })
+      body: JSON.stringify({ query: `${ operation } { result: ${ query } }` })
     });
     if (response.status > 200) {
       return Promise.reject(response.statusText);
@@ -23,8 +25,15 @@ export async function query<T>(query: string): Promise<T> {
         .join('\n');
       return Promise.reject(messages);
     }
-    return data;
+    if (data.result === null) {
+      return Promise.reject(null);
+    }
+    return data.result;
   } catch (error) {
     return Promise.reject(error);
   }
+}
+
+export async function mutation<T>(mutation: string): Promise<T> {
+  return query<T>(mutation, 'mutation');
 }

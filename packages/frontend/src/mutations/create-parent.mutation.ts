@@ -1,19 +1,17 @@
 import { Parent } from '@mapa/backend';
-import { query } from '../utils/query.utils';
+import { mutation } from '../utils/graphql.utils';
 import { storeMe } from '../utils/auth.utils';
 
 export async function createParent(name: Parent['name'], pass: Parent['password'], color: string): Promise<Parent | false> {
   try {
-    const { createParent: me } = await query(`
-      mutation {
-        createParent(name: "${ name }", password: "${ pass }", color: "${ color }") {
-          id, name, color
-        }
+    const parent = await mutation<Parent>(`
+      createParent(name: "${ name }", password: "${ pass }", color: "${ color }") {
+        id name color
       }
     `);
-    await storeMe(me);
-    return Promise.resolve(me as Parent);
+    await storeMe(parent);
+    return parent;
   } catch (error) {
-    return Promise.resolve(false);
+    return false;
   }
 }

@@ -1,21 +1,14 @@
 import { Child } from '@mapa/backend';
-import { query } from '../utils/query.utils';
+import { mutation } from '../utils/graphql.utils';
 
 export async function createChild(name: Child['name'], birthdate: Child['birthdate'], color: Child['color'], gender: Child['gender']): Promise<Child | false> {
   try {
-    const result = await query(`
-      mutation {
-        createChild(name: "${ name }", birthdate: "${ birthdate }", color: "${ color }", gender: ${ gender }) {
-          id
-          name
-          birthdate
-          gender
-        }
+    return await mutation<Child>(`
+      createChild(name: "${ name }", birthdate: "${ birthdate }", color: "${ color }", gender: ${ gender }) {
+        id, name, birthdate, gender
       }
     `);
-    console.log(result);
-    return Promise.resolve(result as Child);
   } catch (error) {
-    return Promise.resolve(false);
+    return false;
   }
 }
