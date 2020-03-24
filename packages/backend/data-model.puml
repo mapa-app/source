@@ -1,0 +1,54 @@
+@startuml
+
+skinparam monochrome true
+skinparam shadowing false
+
+entity Parent {
+  * id: string
+  --
+  * name: string
+  * password: string
+  * color: string
+}
+
+entity Child {
+  * id: string
+  --
+  * name: string
+  * birthdate: string
+  * color: string
+  * gender: FEMALE | MALE
+  * custody: ?
+  image: string
+}
+
+entity Family {
+  * id: string
+  --
+  * state: TOGETHER | DIVORCED | PATCHED | SINGLE
+  * parents: Parent[]
+  * children: Child[]
+  * diary: DiaryEntry[]
+}
+
+entity DiaryEntry {
+  * id: string
+  --
+  * title: string
+  * date: string
+  text: string
+  parents: Parent[]
+  children: Child[]
+}
+
+' relations
+Family }|-- Parent
+Family }|-- Child
+Family }|-- DiaryEntry
+
+' artificial relations
+ Parent }|.|{ Child
+ DiaryEntry }|.|{ Parent
+ DiaryEntry }|.|{ Child
+
+@enduml
