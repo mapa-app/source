@@ -4,6 +4,16 @@
 
 # MaPa App
 
+## About
+This project has been started during the [#wevsvirus hackathon](https://wirvsvirushackathon.devpost.com/) of the [German Government](https://www.bundesregierung.de/breg-de/themen/coronavirus/wir-vs-virus-1731968).
+
+It can be found on [DevPost](https://devpost.com/software/mapa-dsnrgy), the source is on [GitHub](https://github.com/mapa-app/source) and is deployed to [Netlify](https://mapa-app.netlify.com/).
+
+The idea is to help families with their children, especially during a crisis like Corona / Corvid-19. People are forced to stay at home, may have to work remotely and at the same time have to take care of their children. Especially divorced couples may have difficulty finding the right Blanace.
+
+This app helps by recording the daily life of the children with a diary.\
+A calendar supports the planning of childcare times.
+
 * [Prepare](#prepare)
 * [Build](#build)
 * [Serve](#serve)
