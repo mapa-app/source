@@ -2,6 +2,7 @@ import { Component, ComponentInterface, h, Listen, State } from '@stencil/core';
 
 import { login } from '../../queries/login.query';
 import { openURL } from '../../utils/router.utils';
+import { diary } from '../../queries/diary.query';
 
 @Component({
   tag: 'mapa-page-login'
@@ -34,6 +35,7 @@ export class Login implements ComponentInterface {
     event.preventDefault();
 
     this.hasError = !await login(this.username, this.password);
+
     if (!this.hasError) {
       await openURL('/dashboard', event, 'forward');
     }
