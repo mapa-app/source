@@ -15,7 +15,7 @@
 		"start": "ts-node-dev ./src/apollo-graphql.ts"
 	},
 	"dependencies": {
-		"apollo-server": "2.11.0",
+		"apollo-server": "2.25.4",
 		"apollo-server-express": "2.11.0",
 		"bcrypt": "4.0.1",
     "dotenv": "8.2.0",
